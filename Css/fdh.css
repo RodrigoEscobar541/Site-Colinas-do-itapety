@@ -1,0 +1,320 @@
+/* 0px - 479px = celular */
+@media (max-width: 479px){
+    /* Estilos para smartphones em modo retrato */
+    body{
+        width: 100%;
+    }
+    
+    header.AreaContato{/*Altura Header*/
+        height: 300px;
+    }
+    .LogoMenu{ /*Logo*/
+        display: block;
+        position: relative;
+        height: 50%;
+    }
+    
+    .AreaContato a img{ /*Margin entre as redes sociais*/
+        margin: 10px;
+    }
+    .AreaContato a img:hover{
+        width: 190px;
+    }
+    .imgFace{width: 150px; border-radius: 50%; cursor: pointer;} 
+    .imgInsta{width: 150px; border-radius: 50%; cursor: pointer;} 
+    .imgWpp{ width: 150px; border-radius: 50%; cursor: pointer;} 
+    .imgEmail{width: 150px; border-radius: 50%; cursor: pointer;}
+
+    nav.Menu{
+        gap: 40px;
+    }
+    .TXTDecoration{ /*Retira o elemento para que aparece no nav e nao no header*/
+        display: none;
+    }
+    .TXTDecoration320{/*Locaizado em Mogi Das Cruzes*/
+        text-decoration: none;
+        color: black;
+        font-size: 90px;
+        font-family: Arial, Helvetica, sans-serif;
+        display: block;
+        text-align: center;
+    }
+    .ImgLocalIcon{ /*Icone de localização*/
+        height: 120px;
+        cursor: pointer;
+    }
+    
+    .ClickHamburguer{
+        position: relative;
+        width: 200px;
+        margin: 10px;
+        top: -15px;
+        cursor: pointer;
+    }
+    .EstiloTXTHamburguer{
+        color: white;
+        font-weight: bold;
+        position: relative;
+        float: right;
+        border-bottom: solid 2px #ffffff;
+        border-right: solid 2px #ffffff;
+        padding: 0px 3px;
+        font-size: 130px;
+        -webkit-text-stroke: 1px rgb(0, 0, 0); /* borda preta de 2 pixels */
+    }
+    .EstiloTXTHamburguer:hover{
+        font-size: 135px;
+    }
+
+    #carrosel{
+        width: 100%;
+    }
+
+
+    /*NavBar*/
+    #MenuEspaço{
+        display: none;
+    }
+    #MenuComoChegar{
+        display: none;
+    }
+    #MenuTrilhas{
+        display: none;
+    }
+    #MenuPetFriendly{
+        display: none;
+    }
+    #MenuValores{
+        display: none;
+    }
+    #MenuMotorHome{
+        display: none;
+    }
+    #MenuFeedbacks{
+        display: none;
+    }
+    #MenuDuvidas{
+        display: none;
+    }
+    #MenuEventos{
+        display: none;
+    }
+    /*Hamburguer*/
+    #HamburguerEspaço{
+        display: block;
+    }
+    #HamburguerComoChegar{
+        display: block;
+    }
+    #HamburguerTrilhas{
+        display: block;
+    }
+    #HamburguerPetFriendly{
+        display: block;
+    }
+    #HamburguerValores{
+        display: block;
+    }
+    #HamburguerMotorHome{
+        display: block;
+    }
+    #HamburguerFeedbacks{
+        display: block;
+    }
+    #HamburguerDuvidas{
+        display: block;
+    }
+    #HamburguerEventos{
+        display: block;
+    }
+}
+
+/* 480ox - 767px - tablet */
+@media (min-width: 480px) and (max-width: 767px){
+    
+
+
+
+    /*NavBar*/
+    #MenuEspaço{
+        display: none;
+    }
+    #MenuComoChegar{
+        display: none;
+    }
+    #MenuTrilhas{
+        display: none;
+    }
+    #MenuPetFriendly{
+        display: none;
+    }
+    #MenuValores{
+        display: none;
+    }
+    #MenuMotorHome{
+        display: none;
+    }
+    #MenuFeedbacks{
+        display: none;
+    }
+    #MenuDuvidas{
+        display: none;
+    }
+    #MenuEventos{
+        display: none;
+    }
+    /*Hamburguer*/
+    #HamburguerEspaço{
+        display: none;
+    }
+    #HamburguerComoChegar{
+        display: none;
+    }
+    #HamburguerTrilhas{
+        display: none;
+    }
+    #HamburguerPetFriendly{
+        display: none;
+    }
+    #HamburguerValores{
+        display: none;
+    }
+    #HamburguerMotorHome{
+        display: none;
+    }
+    #HamburguerFeedbacks{
+        display: none;
+    }
+    #HamburguerDuvidas{
+        display: none;
+    }
+    #HamburguerEventos{
+        display: none;
+    }
+}
+
+/* 768px - 1023px = telas menores, laptops */
+@media (min-width: 768px) and (max-width: 1023px){
+
+
+
+    /*NavBar*/
+    #MenuEspaço{
+        display: none;
+    }
+    #MenuComoChegar{
+        display: none;
+    }
+    #MenuTrilhas{
+        display: none;
+    }
+    #MenuPetFriendly{
+        display: none;
+    }
+    #MenuValores{
+        display: none;
+    }
+    #MenuMotorHome{
+        display: none;
+    }
+    #MenuFeedbacks{
+        display: none;
+    }
+    #MenuDuvidas{
+        display: none;
+    }
+    #MenuEventos{
+        display: none;
+    }
+    /*Hamburguer*/
+    #HamburguerEspaço{
+        display: none;
+    }
+    #HamburguerComoChegar{
+        display: none;
+    }
+    #HamburguerTrilhas{
+        display: none;
+    }
+    #HamburguerPetFriendly{
+        display: none;
+    }
+    #HamburguerValores{
+        display: none;
+    }
+    #HamburguerMotorHome{
+        display: none;
+    }
+    #HamburguerFeedbacks{
+        display: none;
+    }
+    #HamburguerDuvidas{
+        display: none;
+    }
+    #HamburguerEventos{
+        display: none;
+    }
+}
+
+/* 1024px - 1199px = desktop */
+@media (min-width: 1024px) and (max-width: 1199px){  
+
+
+
+    /*NavBar*/
+    #MenuEspaço{
+        display: none;
+    }
+    #MenuComoChegar{
+        display: none;
+    }
+    #MenuTrilhas{
+        display: none;
+    }
+    #MenuPetFriendly{
+        display: none;
+    }
+    #MenuValores{
+        display: none;
+    }
+    #MenuMotorHome{
+        display: none;
+    }
+    #MenuFeedbacks{
+        display: none;
+    }
+    #MenuDuvidas{
+        display: none;
+    }
+    #MenuEventos{
+        display: none;
+    }
+    /*Hamburguer*/
+    #HamburguerEspaço{
+        display: none;
+    }
+    #HamburguerComoChegar{
+        display: none;
+    }
+    #HamburguerTrilhas{
+        display: none;
+    }
+    #HamburguerPetFriendly{
+        display: none;
+    }
+    #HamburguerValores{
+        display: none;
+    }
+    #HamburguerMotorHome{
+        display: none;
+    }
+    #HamburguerFeedbacks{
+        display: none;
+    }
+    #HamburguerDuvidas{
+        display: none;
+    }
+    #HamburguerEventos{
+        display: none;
+    }
+}
