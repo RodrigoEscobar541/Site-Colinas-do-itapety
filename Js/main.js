@@ -184,101 +184,23 @@ window.addEventListener('load', startCarousel);
 
 function Pergunta(n1) {
   const R = document.getElementsByClassName('R');
-   const bord = document.getElementsByClassName('bord')
-    switch (n1) {
-      case 1:
-        R[0].style.display = 'block';
-        R[1].style.display = 'none';
-        R[2].style.display = 'none';
-        R[3].style.display = 'none';
-        R[4].style.display = 'none';
-        R[5].style.display = 'none';
+  const bord = document.getElementsByClassName('bord');
+  const icons = document.getElementsByClassName('faq-icon');
+  const idx = n1 - 1;
 
-        bord[0].style.textDecoration = 'underline'
-        bord[1].style.textDecoration = 'none'
-        bord[2].style.textDecoration = 'none'
-        bord[3].style.textDecoration = 'none'
-        bord[4].style.textDecoration = 'none'
-        bord[5].style.textDecoration = 'none'
-        break;
-      case 2:
-        R[1].style.display = 'block';
-        R[0].style.display = 'none';
-        R[2].style.display = 'none';
-        R[3].style.display = 'none';
-        R[4].style.display = 'none';
-        R[5].style.display = 'none';
+  const isOpen = R[idx].style.display === 'block';
 
-        bord[1].style.textDecoration = 'underline'
-        bord[0].style.textDecoration = 'none'
-        bord[2].style.textDecoration = 'none'
-        bord[3].style.textDecoration = 'none'
-        bord[4].style.textDecoration = 'none'
-        bord[5].style.textDecoration = 'none'
-        break;
-      case 3:
-        R[2].style.display = 'block';
-        R[0].style.display = 'none';
-        R[1].style.display = 'none';
-        R[3].style.display = 'none';
-        R[4].style.display = 'none';
-        R[5].style.display = 'none';
-        
-        bord[2].style.textDecoration = 'underline'
-        bord[0].style.textDecoration = 'none'
-        bord[1].style.textDecoration = 'none'
-        bord[3].style.textDecoration = 'none'
-        bord[4].style.textDecoration = 'none'
-        bord[5].style.textDecoration = 'none'
-        break;
-      case 4:
-        R[3].style.display = 'block';
-        R[0].style.display = 'none';
-        R[1].style.display = 'none';
-        R[2].style.display = 'none';
-        R[4].style.display = 'none';
-        R[5].style.display = 'none';
+  for (let i = 0; i < R.length; i++) {
+    R[i].style.display = 'none';
+    bord[i].style.textDecoration = 'none';
+    icons[i].textContent = '+';
+  }
 
-        bord[3].style.textDecoration = 'underline'
-        bord[0].style.textDecoration = 'none'
-        bord[1].style.textDecoration = 'none'
-        bord[2].style.textDecoration = 'none'
-        bord[4].style.textDecoration = 'none'
-        bord[5].style.textDecoration = 'none'
-        break;
-      case 5:
-        R[4].style.display = 'block';
-        R[0].style.display = 'none';
-        R[1].style.display = 'none';
-        R[2].style.display = 'none';
-        R[3].style.display = 'none';
-        R[5].style.display = 'none';
-
-        bord[4].style.textDecoration = 'underline'
-        bord[0].style.textDecoration = 'none'
-        bord[1].style.textDecoration = 'none'
-        bord[2].style.textDecoration = 'none'
-        bord[3].style.textDecoration = 'none'
-        bord[5].style.textDecoration = 'none'
-        break;
-      case 6:
-        R[5].style.display = 'block';
-        R[0].style.display = 'none';
-        R[1].style.display = 'none';
-        R[2].style.display = 'none';
-        R[3].style.display = 'none';
-        R[4].style.display = 'none';
-
-        bord[5].style.textDecoration = 'underline'
-        bord[0].style.textDecoration = 'none'
-        bord[1].style.textDecoration = 'none'
-        bord[2].style.textDecoration = 'none'
-        bord[3].style.textDecoration = 'none'
-        bord[4].style.textDecoration = 'none'
-        break;
-        default:
-          window.alert('[ERRO] Resolveremos em breve! Tente não utilizar as dúvidas')
-    }
+  if (!isOpen) {
+    R[idx].style.display = 'block';
+    bord[idx].style.textDecoration = 'underline';
+    icons[idx].textContent = '−';
+  }
 }
 function getSelectedButtonValue() {
   const buttons = document.getElementsByName('P');

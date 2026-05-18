@@ -405,35 +405,49 @@
   <footer>
     <section class="SeçãoDúvidas">
       <p id="Duvidas"><img id="Duvidas" src="./Img/Títulos/Dúvidas.png"></p>
-      <div style="display: flex; justify-content:center; align-items:center; gap:50px;">
-        <div style="display: grid; text-align: center;">
-          <button class="P" id="P1" onclick="Pergunta(1)">
-            <p class="Bord">Como funciona o Pagamentos?</p>
-            <p class="R" id="R1">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-          <button class="P" id="P2" onclick="Pergunta(2)">
-            <p class="Bord">Como funciona funciona o Pagamentos?</p>
-            <p class="R" id="R2">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-          <button class="P" id="P3" onclick="Pergunta(3)">
-            <p class="Bord">Como funciona funciona funcionao Pagamentos?</p>
-            <p class="R" id="R3">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-        </div>
-        <div style="display: grid; text-align: center;">
-          <button class="P" id="P4" onclick="Pergunta(4)">
-            <p class="Bord">Como Como funciona o Pagamentos?</p>
-            <p class="R" id="R4">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-          <button class="P" id="P5" onclick="Pergunta(5)">
-            <p class="Bord">Como Como Como funciona o Pagamentos?</p>
-            <p class="R" id="R5">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-          <button class="P" id="P6" onclick="Pergunta(6)">
-            <p class="Bord">Como funciona o o o o Pagamentos?</p>
-            <p class="R" id="R6">Se paga um sinal de 50% do valor e ao ir embora o resante</p>
-          </button>
-        </div>
+      <div class="faq-container">
+        <button class="P" id="P1" onclick="Pergunta(1)">
+          <div class="faq-header">
+            <p class="bord">Como funciona o pagamento da reserva?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R1">Para confirmar sua reserva, é cobrado um sinal de 50% do valor total. O restante é pago no momento da saída do Camping. Entre em contato pelo WhatsApp para combinar a forma de pagamento do sinal.</p>
+        </button>
+        <button class="P" id="P2" onclick="Pergunta(2)">
+          <div class="faq-header">
+            <p class="bord">Posso levar meu cachorro?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R2">Sim! O Colinas é Pet Friendly e seu cãopanheiro é bem-vindo! Lembre-se de recolher as fezes e manter o pet sob controle. Se ele for mais bravo, use focinheira — há outros cães, gatos e animais de vizinhos no local.</p>
+        </button>
+        <button class="P" id="P3" onclick="Pergunta(3)">
+          <div class="faq-header">
+            <p class="bord">Qual é o horário de entrada e saída?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R3">Nossa diária vai das 8h até 20h. Você pode chegar às 8h e sair no dia seguinte até 20h pagando apenas uma diária. A cobrança é pelo número de pernoites, não por hora.</p>
+        </button>
+        <button class="P" id="P4" onclick="Pergunta(4)">
+          <div class="faq-header">
+            <p class="bord">Como chego ao Camping?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R4">Use sempre o Google Maps — nunca o Waze (ele leva para o lugar errado!). Pesquise "Camping Colinas do Itapety". O acesso é pela Rodovia Pedro Eroles. Após a Casa do Queijo, vire à direita, depois à esquerda na estrada de terra e siga até o final. Atenção à subida íngreme: suba em 1ª marcha!</p>
+        </button>
+        <button class="P" id="P5" onclick="Pergunta(5)">
+          <div class="faq-header">
+            <p class="bord">Há Wi-Fi ou sinal de celular?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R5">Não há Wi-Fi disponível no Camping. O sinal de celular funciona, mas pode oscilar conforme a operadora. Aproveite para desconectar e curtir o ar puro da Serra do Itapety!</p>
+        </button>
+        <button class="P" id="P6" onclick="Pergunta(6)">
+          <div class="faq-header">
+            <p class="bord">O que devo levar para o Camping?</p>
+            <span class="faq-icon">+</span>
+          </div>
+          <p class="R" id="R6">Leve sua barraca, itens de higiene, toalha e artigos de banho. A área comum tem geladeira, fogão e utensílios básicos — mas leve o essencial, pois não garantimos que tudo estará disponível. Atenção: todas as tomadas são 220V e não são permitidos aparelhos acima de 300W.</p>
+        </button>
       </div>
     </section>
     <p style="font-weight: bold; position: relative; left: 13%; width: 400px; display: none;">&copy; Rodrigo Escobar
