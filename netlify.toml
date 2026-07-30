@@ -1,0 +1,57 @@
+# Configuração do Netlify.
+#
+# O problema que este arquivo resolve: por padrão o Netlify manda
+# "Cache-Control: max-age=0, must-revalidate" para tudo. Traduzindo: o
+# navegador não guarda NADA, e cada visita baixa todas as fotos de novo.
+# Fotos e ícones do site não mudam de conteúdo sem mudar de nome, então
+# podem ser guardadas por muito tempo com segurança.
+
+[build]
+  publish = "."
+
+# ------------------------------------------------------------------ imagens --
+# 1 ano no cache do navegador. Se uma foto for trocada, troque também o nome
+# do arquivo (ex.: barraca-3.webp -> barraca-3b.webp) para forçar a atualização.
+[[headers]]
+  for = "/Img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ----------------------------------------------------------------- css e js --
+# 1 semana: são editados com alguma frequência, então o prazo é mais curto.
+[[headers]]
+  for = "/Css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/Js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# ------------------------------------------------------------------- página --
+# O HTML NÃO pode ser guardado: é ele que aponta para todo o resto, e uma
+# versão velha em cache deixaria o visitante preso no site antigo.
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# O nome antigo do arquivo de robôs era "User-agent.txt", que o Google nunca
+# procura. Quem tiver o link velho é levado para o lugar certo.
+[[redirects]]
+  from = "/User-agent.txt"
+  to = "/robots.txt"
+  status = 301

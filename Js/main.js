@@ -1,281 +1,234 @@
-/*let a = window.innerWidth
-window.alert(a)*/
+/* ==========================================================================
+   Camping Colinas do Itapety — comportamento da página
 
-function atualizarWidth(){
-  let larguraJanela = window.innerWidth;
-  let LiMenu = [window.document.getElementById('MenuEspaço')/*0*/, window.document.getElementById('MenuComoChegar')/*1*/,
-                window.document.getElementById('MenuTrilhas')/*2*/, window.document.getElementById('MenuPetFriendly')/*3*/, 
-                window.document.getElementById('MenuValores')/*4*/, window.document.getElementById('MenuMotorHome')/*5*/,
-                window.document.getElementById('MenuFeedbacks')/*6*/, window.document.getElementById('MenuDuvidas')/*7*/,
-                window.document.getElementById('MenuEventos')/*8*/]
-  let LiHamburguer = [window.document.getElementById('HamburguerEspaço')/*0*/, window.document.getElementById('HamburguerComoChegar')/*1*/,
-                      window.document.getElementById('HamburguerTrilhas')/*2*/, window.document.getElementById('HamburguerPetFriendly')/*3*/, 
-                      window.document.getElementById('HamburguerValores')/*4*/, window.document.getElementById('HamburguerMotorHome')/*5*/,
-                      window.document.getElementById('HamburguerFeedbacks')/*6*/, window.document.getElementById('HamburguerDuvidas')/*7*/,
-                      window.document.getElementById('HamburguerEventos')/*8*/]
-  
-  if(larguraJanela <= 479){
-    LiMenu.style.display = 'none';
-    
-    LiHamburguer.style.display = 'block';
-    
-  } else if(larguraJanela >= 480 && larguraJanela <= 767){
-    LiMenu[0].style.display = 'block'; /*Espaço*/
-    LiMenu[1].style.display = 'block'; /*Como Chegar*/
-    LiMenu[2].style.display = 'block'; /*Trilhas*/
-    LiMenu[3].style.display = 'none'; /*Pet*/
-    LiMenu[4].style.display = 'none'; /*Valores*/
-    LiMenu[5].style.display = 'none'; /*MotorHome*/
-    LiMenu[6].style.display = 'none'; /*FeedBack*/
-    LiMenu[7].style.display = 'none'; /*Duvidas*/
-    LiMenu[8].style.display = 'none'; /*Eventos*/
-    
-    LiHamburguer[0].style.display = 'none'; /*Espaço*/
-    LiHamburguer[1].style.display = 'none'; /*Como Chegar*/
-    LiHamburguer[2].style.display = 'none'; /*Trilhas*/
-    LiHamburguer[3].style.display = 'block'; /*Pet*/
-    LiHamburguer[4].style.display = 'block'; /*Valores*/
-    LiHamburguer[5].style.display = 'block'; /*MotorHome*/
-    LiHamburguer[6].style.display = 'block'; /*FeedBack*/
-    LiHamburguer[7].style.display = 'block'; /*Duvidas*/
-    LiHamburguer[8].style.display = 'block'; /*Eventos*/
-  
-  } else if(larguraJanela >= 768 && larguraJanela <= 1023){
-    LiMenu[0].style.display = 'block'; /*Espaço*/
-    LiMenu[1].style.display = 'block'; /*Como Chegar*/
-    LiMenu[2].style.display = 'block'; /*Trilhas*/
-    LiMenu[3].style.display = 'block'; /*Pet*/
-    LiMenu[4].style.display = 'none'; /*Valores*/
-    LiMenu[5].style.display = 'none'; /*MotorHome*/
-    LiMenu[6].style.display = 'none'; /*FeedBack*/
-    LiMenu[7].style.display = 'none'; /*Duvidas*/
-    LiMenu[8].style.display = 'none'; /*Eventos*/
-    
-    LiHamburguer[0].style.display = 'none'; /*Espaço*/
-    LiHamburguer[1].style.display = 'none'; /*Como Chegar*/
-    LiHamburguer[2].style.display = 'none'; /*Trilhas*/
-    LiHamburguer[3].style.display = 'none'; /*Pet*/
-    LiHamburguer[4].style.display = 'block'; /*Valores*/
-    LiHamburguer[5].style.display = 'block'; /*MotorHome*/
-    LiHamburguer[6].style.display = 'block'; /*FeedBack*/
-    LiHamburguer[7].style.display = 'block'; /*Duvidas*/
-    LiHamburguer[8].style.display = 'block'; /*Eventos*/
-    
-  } else if(larguraJanela >= 1024 && larguraJanela <= 1199){
-    LiMenu[0].style.display = 'block'; /*Espaço*/
-    LiMenu[1].style.display = 'block'; /*Como Chegar*/
-    LiMenu[2].style.display = 'block'; /*Trilhas*/
-    LiMenu[3].style.display = 'block'; /*Pet*/
-    LiMenu[4].style.display = 'block'; /*Valores*/
-    LiMenu[5].style.display = 'none'; /*MotorHome*/
-    LiMenu[6].style.display = 'none'; /*FeedBack*/
-    LiMenu[7].style.display = 'none'; /*Duvidas*/
-    LiMenu[8].style.display = 'none'; /*Eventos*/
-    
-    LiHamburguer[0].style.display = 'none'; /*Espaço*/
-    LiHamburguer[1].style.display = 'none'; /*Como Chegar*/
-    LiHamburguer[2].style.display = 'none'; /*Trilhas*/
-    LiHamburguer[3].style.display = 'none'; /*Pet*/
-    LiHamburguer[4].style.display = 'none'; /*Valores*/
-    LiHamburguer[5].style.display = 'block'; /*MotorHome*/
-    LiHamburguer[6].style.display = 'block'; /*FeedBack*/
-    LiHamburguer[7].style.display = 'block'; /*Duvidas*/
-    LiHamburguer[8].style.display = 'block'; /*Eventos*/
-    
-  } else if(larguraJanela >= 1200 && larguraJanela <= 1440){
-    LiMenu[0].style.display = 'block'; /*Espaço*/
-    LiMenu[1].style.display = 'block'; /*Como Chegar*/
-    LiMenu[2].style.display = 'block'; /*Trilhas*/
-    LiMenu[3].style.display = 'block'; /*Pet*/
-    LiMenu[4].style.display = 'block'; /*Valores*/
-    LiMenu[5].style.display = 'none'; /*MotorHome*/
-    LiMenu[6].style.display = 'none'; /*FeedBack*/
-    LiMenu[7].style.display = 'none'; /*Duvidas*/
-    LiMenu[8].style.display = 'none'; /*Eventos*/
-    
-    LiHamburguer[0].style.display = 'none'; /*Espaço*/
-    LiHamburguer[1].style.display = 'none'; /*Como Chegar*/
-    LiHamburguer[2].style.display = 'none'; /*Trilhas*/
-    LiHamburguer[3].style.display = 'none'; /*Pet*/
-    LiHamburguer[4].style.display = 'none'; /*Valores*/
-    LiHamburguer[5].style.display = 'block'; /*MotorHome*/
-    LiHamburguer[6].style.display = 'block'; /*FeedBack*/
-    LiHamburguer[7].style.display = 'block'; /*Duvidas*/
-    LiHamburguer[8].style.display = 'block'; /*Eventos*/
-    
+   O que saiu daqui e por quê:
+
+   1) atualizarWidth() rodava a cada 2 segundos e mostrava/escondia item por
+      item do menu conforme a largura da janela. Em telas de até 479px e acima
+      de 1440px ela tentava usar uma LISTA como se fosse um elemento só
+      (LiMenu.style.display), o que dava erro no console a cada 2 segundos e
+      deixava o menu quebrado. Esse trabalho agora é do CSS (@media), que faz
+      isso de graça e sem rodar código.
+
+   2) setInterval(AtualizarBacktoTop, 100) chamava a função 10 vezes por
+      segundo, para sempre. Agora só roda quando a página é rolada.
+
+   3) getSelectedButtonValue() não era chamada por ninguém.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- MENU ---- */
+function Hamburguer() {
+  const dropHamburguer = document.getElementById('DropHamburguer');
+  const chat = document.getElementById('chat');
+  const img = document.getElementById('OpenHamburguer');
+  const botao = document.querySelector('.BotaoHamburguer');
+  const aberto = getComputedStyle(dropHamburguer).display !== 'none';
+
+  if (aberto) {
+    dropHamburguer.style.display = 'none';
+    img.src = './Img/Hambuerguer/Hamburguer Open.webp';
   } else {
-    LiMenu.style.display = 'block';
-    
-    LiHamburguer.style.display = 'none';
-  }}
-  setInterval(atualizarWidth, 2000);
-  
+    dropHamburguer.style.display = 'block';
+    img.src = './Img/Hambuerguer/Hamburguer Seta.webp';
+  }
 
-function Hamburguer(){
-  let dropHamburguer = window.document.getElementById('DropHamburguer')
-  let chat = window.document.getElementById('chat')
-  let img = window.document.getElementById('OpenHamburguer');
-  let listaStyle = window.getComputedStyle(dropHamburguer);
+  chat.style.display = 'none';
+  if (botao) {
+    botao.setAttribute('aria-expanded', String(!aberto));
+    botao.setAttribute('aria-label', aberto ? 'Abrir menu' : 'Fechar menu');
+  }
+}
 
-  if(listaStyle.display == 'none'){ //open
-    dropHamburguer.style.display = 'block'
-    chat.style.display = 'none'
-    img.src = "./Img/Hambuerguer/Hamburguer Seta.png";
-    img.addEventListener('mouseenter', function(){
-      img.src = "./Img/Hambuerguer/Hamburguer Close.png"
-    })
-    img.addEventListener('mouseout', function(){
-      img.src = "./Img/Hambuerguer/Hamburguer Seta.png"
-    })
-    if(window.innerWidth <= 479){ /*Ajusta para cell*/
-      img.style.width = '200px'
-    }else{
-      img.style.width = '40px'
+// Trocar a imagem no passar do mouse: registrado UMA vez, não a cada clique
+// (antes cada clique adicionava mais um par de ouvintes, que iam se acumulando).
+(function prepararHoverHamburguer() {
+  const img = document.getElementById('OpenHamburguer');
+  if (!img) return;
+  const estaAberto = () => {
+    const drop = document.getElementById('DropHamburguer');
+    return drop && getComputedStyle(drop).display !== 'none';
+  };
+  img.addEventListener('mouseenter', () => {
+    if (estaAberto()) img.src = './Img/Hambuerguer/Hamburguer Close.webp';
+  });
+  img.addEventListener('mouseleave', () => {
+    img.src = estaAberto()
+      ? './Img/Hambuerguer/Hamburguer Seta.webp'
+      : './Img/Hambuerguer/Hamburguer Open.webp';
+  });
+})();
+
+// Fecha o menu ao escolher uma seção (no celular ele cobria o conteúdo)
+document.querySelectorAll('#DropHamburguer a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    const drop = document.getElementById('DropHamburguer');
+    const botao = document.querySelector('.BotaoHamburguer');
+    const img = document.getElementById('OpenHamburguer');
+    if (drop) drop.style.display = 'none';
+    if (img) img.src = './Img/Hambuerguer/Hamburguer Open.webp';
+    if (botao) {
+      botao.setAttribute('aria-expanded', 'false');
+      botao.setAttribute('aria-label', 'Abrir menu');
     }
-  }else{ //cloed
-    dropHamburguer.style.display = 'none'
-    chat.style.display = 'none' 
-    img.src = "./Img/Hambuerguer/Hamburguer Open.png";
-    img.addEventListener('mouseenter', function(){  //Não deixa o mouseenter e  mouseout ser mudar a imgem
-      img.src = "./Img/Hambuerguer/Hamburguer Open.png"
-    })
-    img.addEventListener('mouseout', function(){
-      img.src = "./Img/Hambuerguer/Hamburguer Open.png"
-    })
-    if(window.innerWidth <= 479){ /*Ajusta para cell*/
-      img.style.width = '200px'
-    }else{
-      img.style.width = '40px'
-    }
-  }
-}
+  });
+});
 
- // Função para reprodução automática do carrossel
- function startCarousel() {
-  const sliderContainer = document.querySelector('.slider-container');
-  const sliderItems = sliderContainer.querySelectorAll('li#carrosel');
-  const totalSlides = sliderItems.length;
-  let currentSlide = 0;
+/* ----------------------------------------------------- CARROSSEL DO TOPO -- */
+function startCarousel() {
+  const slides = document.querySelectorAll('.SeçãoCarrosel .slide-topo');
+  if (slides.length === 0) return;
+  let atual = 0;
 
-  function showSlide(index) {
-    // Oculta todos os slides
-    for (let i = 0; i < sliderItems.length; i++) {
-      sliderItems[i].style.display = 'none';
-    }
-
-    // Exibe o slide atual
-    sliderItems[index].style.display = 'block';
+  function mostrar(indice) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === indice ? 'block' : 'none';
+    });
   }
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-  }
-
-  // Exibe o primeiro slide
-  showSlide(currentSlide);
-
-  // Define a reprodução automática a cada 3 segundos (ajuste conforme necessário)
-  setInterval(nextSlide, 3000);
+  mostrar(atual);
+  setInterval(() => {
+    atual = (atual + 1) % slides.length;
+    mostrar(atual);
+  }, 3000);
 }
 
-// Inicia o carrossel após o carregamento da página
-window.addEventListener('load', startCarousel);
+/* ------------------------------------------- SETAS DOS CARROSSÉIS DE TRILHA */
+/* As setas < > das trilhas nunca funcionaram: o HTML foi escrito para a
+   biblioteca swiffy-slider, mas só o CSS dela era carregado — o JS, nunca.
+   São poucas linhas, então em vez de baixar a biblioteca inteira, a rolagem
+   é feita aqui. */
+function prepararSetasTrilhas() {
+  document.querySelectorAll('.carrosel-trilha').forEach((slider) => {
+    const container = slider.querySelector('.slider-container');
+    if (!container) return;
 
-function Pergunta(n1) {
-  const R = document.getElementsByClassName('R');
-  const bord = document.getElementsByClassName('bord');
-  const icons = document.getElementsByClassName('faq-icon');
-  const idx = n1 - 1;
+    slider.querySelectorAll('.slider-nav').forEach((botao) => {
+      const paraFrente = botao.classList.contains('slider-nav-next');
+      botao.addEventListener('click', (evento) => {
+        evento.preventDefault();
+        const passo = container.clientWidth;
+        const fim = container.scrollWidth - container.clientWidth;
 
-  const isOpen = R[idx].style.display === 'block';
+        let destino = container.scrollLeft + (paraFrente ? passo : -passo);
+        // dá a volta: da última foto vai para a primeira, e vice-versa
+        if (destino > fim + 1) destino = 0;
+        if (destino < 0) destino = fim;
 
-  for (let i = 0; i < R.length; i++) {
-    R[i].style.display = 'none';
-    bord[i].style.textDecoration = 'none';
-    icons[i].textContent = '+';
-  }
-
-  if (!isOpen) {
-    R[idx].style.display = 'block';
-    bord[idx].style.textDecoration = 'underline';
-    icons[idx].textContent = '−';
-  }
-}
-function getSelectedButtonValue() {
-  const buttons = document.getElementsByName('P');
-  for (let i = 0; i < buttons.length; i++) {
-    if (buttons[i].checked) {
-      return parseInt(buttons[i].value);
-    }
-  }
-  return null;
-}
-
-function abrirchat(){
-    let chat = window.document.getElementById('chat') //Img do chat
-    let dropHamburguer = window.document.getElementById('DropHamburguer') //Lista Hamburguer
-    let img = window.document.getElementById('OpenHamburguer'); //Img padrao hamburguer
-    let listaStyle = window.getComputedStyle(chat);
-    if (listaStyle.display == 'none'){ //open
-        chat.style.display = 'block' //Abre o chat
-        dropHamburguer.style.display = 'none' //Caso o hamburguer esteja aberto, fecha
-        img.src = "./Img/Hambuerguer/Hamburguer Open.png"; //Caso o hambuguer estiver aberto, coloca a imagem padrao
-        
-        img.addEventListener('mouseenter', function(){    //Não deixa o mouseenter e  mouseout ser mudar a imgem
-          img.src = "./Img/Hambuerguer/Hamburguer Open.png"
-        })
-        img.addEventListener('mouseout', function(){
-          img.src = "./Img/Hambuerguer/Hamburguer Open.png"
-        })
-
-        img.style.width = '50px'
-    }else{
-        chat.style.display = 'none'
-    }
-}
-function atualizarHora() {
-    let relogio = window.document.getElementById('relogio')
-    const agora = new Date();
-    const hora = agora.getHours();
-    const minuto = agora.getMinutes().toString().padStart(2, '0');
-    relogio.innerHTML = `${hora}:${minuto}`
-}
-setInterval(atualizarHora, 1000);
-function EnviarWpp(){
-    let nome = window.document.getElementById('nome').value
-    let quantpessoas = window.document.getElementById('Quantpessoas').value
-    let dataC = window.document.getElementById('datachegada').value
-    let dataS  = window.document.getElementById('datasaida').value
-
-    let link = "https://wa.me/551147901566?text=Olá, Colinas! Me chamo " + nome + ", gostaria de saber se há reserva disponível entre os dias " + dataC + " à " + dataS + " para " + quantpessoas + " pessoas. Obgd! ";
-    
-    window.open(link, '_blank');
-}
-
-function AtualizarBacktoTop() {
-  let Desce = window.document.getElementById('Irparabaixo');
-  let Sobi = window.document.getElementById('Voltaaotopo');
-  let posicaoDesejada = 700; // Posição desejada em pixels
-
-  if (window.scrollY <= posicaoDesejada) {
-    Sobi.style.display = 'none';
-    Desce.style.display = 'block';
-  } else {
-    Sobi.style.display = 'block';
-    Desce.style.display = 'none';
-  }
-}
-setInterval(AtualizarBacktoTop, 100);
-function Descer() {
-  window.scrollTo({
-    top: document.querySelector("#Espaço").offsetTop,
-    behavior: "smooth"
+        container.scrollTo({ left: destino, behavior: 'smooth' });
+      });
+    });
   });
 }
-function Volta(){
-  window.scrollTo({
-      top: 0,
-      left: 0,
-    });
+
+/* ------------------------------------------------------------- DÚVIDAS ---- */
+function Pergunta(n1) {
+  const respostas = document.getElementsByClassName('R');
+  const perguntas = document.getElementsByClassName('bord');
+  const icones = document.getElementsByClassName('faq-icon');
+  const botoes = document.getElementsByClassName('P');
+  const idx = n1 - 1;
+
+  const jaAberta = respostas[idx].style.display === 'block';
+
+  for (let i = 0; i < respostas.length; i++) {
+    respostas[i].style.display = 'none';
+    perguntas[i].style.textDecoration = 'none';
+    icones[i].textContent = '+';
+    if (botoes[i]) botoes[i].setAttribute('aria-expanded', 'false');
+  }
+
+  if (!jaAberta) {
+    respostas[idx].style.display = 'block';
+    perguntas[idx].style.textDecoration = 'underline';
+    icones[idx].textContent = '−';
+    if (botoes[idx]) botoes[idx].setAttribute('aria-expanded', 'true');
+  }
 }
+
+/* --------------------------------------------- FORMULÁRIO DE RESERVA ------ */
+let relogioTimer = null;
+
+function atualizarHora() {
+  const relogio = document.getElementById('relogio');
+  if (!relogio) return;
+  const agora = new Date();
+  const hora = agora.getHours();
+  const minuto = String(agora.getMinutes()).padStart(2, '0');
+  relogio.textContent = `${hora}:${minuto}`;
+}
+
+function abrirchat() {
+  const chat = document.getElementById('chat');
+  const dropHamburguer = document.getElementById('DropHamburguer');
+  const img = document.getElementById('OpenHamburguer');
+  const botaoMenu = document.querySelector('.BotaoHamburguer');
+  const fechado = getComputedStyle(chat).display === 'none';
+
+  if (fechado) {
+    chat.style.display = 'block';
+    if (dropHamburguer) dropHamburguer.style.display = 'none';
+    if (img) img.src = './Img/Hambuerguer/Hamburguer Open.webp';
+    if (botaoMenu) {
+      botaoMenu.setAttribute('aria-expanded', 'false');
+      botaoMenu.setAttribute('aria-label', 'Abrir menu');
+    }
+    // O relógio só corre com o formulário aberto. Antes rodava 1x por segundo
+    // para sempre, mesmo com o formulário fechado e ninguém vendo.
+    atualizarHora();
+    if (!relogioTimer) relogioTimer = setInterval(atualizarHora, 30000);
+  } else {
+    chat.style.display = 'none';
+    if (relogioTimer) {
+      clearInterval(relogioTimer);
+      relogioTimer = null;
+    }
+  }
+}
+
+function EnviarWpp() {
+  const nome = document.getElementById('nome').value.trim();
+  const quantpessoas = document.getElementById('Quantpessoas').value;
+  const dataC = document.getElementById('datachegada').value;
+  const dataS = document.getElementById('datasaida').value;
+
+  const texto =
+    `Olá, Colinas! Me chamo ${nome}, gostaria de saber se há reserva disponível ` +
+    `entre os dias ${dataC} à ${dataS} para ${quantpessoas} pessoas. Obgd! `;
+
+  // encodeURIComponent: sem isso, acento e "#" cortavam a mensagem no meio
+  window.open(`https://wa.me/551147901566?text=${encodeURIComponent(texto)}`, '_blank');
+}
+
+/* ------------------------------------------------------- VOLTA AO TOPO ---- */
+function AtualizarBacktoTop() {
+  const desce = document.getElementById('Irparabaixo');
+  const sobe = document.getElementById('Voltaaotopo');
+  if (!desce || !sobe) return;
+  const posicaoDesejada = 700;
+
+  if (window.scrollY <= posicaoDesejada) {
+    sobe.style.display = 'none';
+    desce.style.display = 'block';
+  } else {
+    sobe.style.display = 'block';
+    desce.style.display = 'none';
+  }
+}
+
+function Descer() {
+  const alvo = document.querySelector('#Espaço');
+  if (!alvo) return;
+  window.scrollTo({ top: alvo.offsetTop, behavior: 'smooth' });
+}
+
+function Volta() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+}
+
+/* --------------------------------------------------------------- INÍCIO --- */
+// passive: true avisa o navegador que a rolagem não vai ser bloqueada,
+// o que deixa o site mais leve para deslizar no celular.
+window.addEventListener('scroll', AtualizarBacktoTop, { passive: true });
+AtualizarBacktoTop();
+prepararSetasTrilhas();
+startCarousel();

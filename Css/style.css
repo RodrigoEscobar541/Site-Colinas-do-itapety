@@ -1,82 +1,194 @@
-* { margin: 0; padding: 0; }
-html{
-    scroll-behavior: smooth;
+/* ==========================================================================
+   BASE / RESET
+   Estas primeiras regras substituem o Bootstrap, que era baixado do CDN só
+   para "ajustar o html". Ele custava ~230 KB de CSS bloqueando a página;
+   destas linhas, o que realmente importava era o box-sizing.
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* largura passa a incluir borda e padding: sem isso qualquer largura
+       de 100% + borda estoura a tela do celular */
 }
-body, html{
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body,
+html {
     position: relative;
-    display: grid;
     width: 100%;
-    height: 0 auto;
-    scroll-behavior: smooth;
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+    max-width: 100%;
+    overflow-x: hidden;
+    /* trava a rolagem lateral: é o que faz o site "vazar" no celular */
+    background: linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
 }
-p{
+
+body {
+    display: block;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header.AreaContato{
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* Nenhuma imagem pode ser mais larga que o espaço que tem */
+img,
+iframe {
+    max-width: 100%;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Como as âncoras (#Espaço, #Valores...) agora ficam na própria <section>,
+   esta folga evita que o título fique escondido ao pular para a seção. */
+section[id] {
+    scroll-margin-top: 20px;
+}
+
+/* Rótulo que existe para leitor de tela / Google, mas não aparece na tela.
+   Usado nos campos do formulário de reserva, que só tinham placeholder. */
+.RotuloOculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Botões que embrulham imagens (topo, whatsapp, hamburguer): precisam parecer
+   com a imagem solta que eram antes. */
+.BotaoTopo,
+.BotaoHamburguer,
+.BotaoWppFlutuante {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    line-height: 0;
+}
+
+.Escondido {
+    display: none;
+}
+
+/* ==========================================================================
+   TOPO: barra de contato e menu
+   ========================================================================== */
+header.AreaContato {
     border-left: solid 5px rgb(112, 114, 21);
     border-right: solid 5px rgb(112, 114, 21);
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
 }
-.AreaContato a img{
+
+.AreaContato a img {
     margin: 4px;
 }
-.AreaContato a img:hover{
+
+.AreaContato a img:hover {
     width: 45px;
 }
-.imgFace{width: 40px; border-radius: 50%; cursor: pointer;} .imgInsta{width: 40px; border-radius: 50%; cursor: pointer;} .imgWpp{ width: 40px; border-radius: 50%; cursor: pointer;} .imgEmail{width: 40px; border-radius: 50%; cursor: pointer;}
-.TXTDecoration{
+
+.imgFace,
+.imgInsta,
+.imgWpp,
+.imgEmail {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.TXTDecoration {
     text-decoration: none;
     color: black;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
+    display: inline-flex;
+    align-items: center;
 }
-.TXTDecoration:hover{
+
+.TXTDecoration:hover {
     font-size: 21px;
 }
-.ImgLocalIcon{
+
+.ImgLocalIcon {
     height: 45px;
+    width: auto;
     cursor: pointer;
 }
 
-
-
-.corM{
-    background:linear-gradient(#fbe9c5 1%, rgb(255, 216, 143), #fbe9c5);
+.corM {
+    background: linear-gradient(#fbe9c5 1%, rgb(255, 216, 143), #fbe9c5);
 }
 
-
-
-nav.Menu{
+nav.Menu {
     width: auto;
     border-left: solid 5px rgb(112, 114, 21);
     border-right: solid 5px rgb(112, 114, 21);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
-nav.Menu .LogoMenu{ /*Logo*/
+
+.LinkLogo {
+    display: block;
+    line-height: 0;
+}
+
+nav.Menu .LogoMenu {
+    /*Logo*/
     position: relative;
     width: 250px;
+    height: auto;
     right: 30px;
     top: -25px;
 }
-nav.Menu ul{
+
+nav.Menu ul {
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-nav.Menu li{
-    list-style: none
+
+nav.Menu li {
+    list-style: none;
 }
-nav.Menu a{
+
+nav.Menu a {
     text-decoration: none;
 }
-nav.Menu h1{ /*Títulos*/
+
+/* Os itens do menu eram <h1> (nove H1 na mesma página, o que confundia o
+   Google sobre qual é o assunto). Agora são <span> com a mesma aparência. */
+nav.Menu .ItemMenu {
+    display: block;
     position: relative;
     margin: 10px;
     margin-left: 18px;
@@ -87,34 +199,47 @@ nav.Menu h1{ /*Títulos*/
     border-left: solid 2px;
     border-top: solid 2px;
     cursor: pointer;
+    line-height: 1.2;
 }
-nav.Menu h1:hover{ /*Hover dos títulos*/
+
+nav.Menu .ItemMenu:hover {
     font-size: 32px;
 }
 
-
-.ClickHamburguer{
+.ClickHamburguer {
     position: relative;
     width: 50px;
+    height: auto;
     margin: 10px;
     top: -15px;
     cursor: pointer;
 }
-.DropHamburguer{
+
+.DropHamburguer {
     display: none;
     position: absolute;
-    z-index: 1;
+    z-index: 20;
     right: 10px;
     border-radius: 20px;
     animation: slow 5s ease-out;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image:  url(/Img/Hambuerguer/Folha.png);
+    background-image: url(/Img/Hambuerguer/Folha.webp);
     border: solid 3px rgb(255, 216, 143);
     padding: 20px;
 }
 
-.EstiloTXTHamburguer{
+.DropHamburguer ul {
+    display: grid;
+    list-style: none;
+}
+
+.DropHamburguer li {
+    list-style: none;
+}
+
+.EstiloTXTHamburguer {
+    display: block;
     color: white;
     font-weight: bold;
     position: relative;
@@ -123,74 +248,224 @@ nav.Menu h1:hover{ /*Hover dos títulos*/
     border-right: solid 2px #ffffff;
     padding: 0px 3px;
     font-size: 20px;
-    -webkit-text-stroke: 1px rgb(0, 0, 0); /* borda preta de 2 pixels */
-    
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    /* borda preta de 2 pixels */
 }
-.EstiloTXTHamburguer:hover{
+
+.EstiloTXTHamburguer:hover {
     font-size: 21px;
 }
-#MenuEspaço{display: block;} #MenuComoChegar{display: block;} #MenuTrilhas{display: block;} #MenuPetFriendly{display: block;} #MenuValores{display: block;} #MenuMotorHome{display: block;}
-#HamburguerEspaço{display: none;} #HamburguerComoChegar{display: none;} #HamburguerTrilhas{display: none;} #HamburguerPetFriendly{display: none;} #HamburguerValores{display: none;} #HamburguerMotorHome{display: none;}
 
-.SeçãoCarrosel{
+/* O menu suspenso (hamburguer) só aparece no celular, onde a lista horizontal
+   não cabe. Antes um JS decidia isso item por item, a cada 2 segundos — e
+   errava nas telas muito pequenas e muito grandes. */
+.Hamburguer {
+    display: none;
+}
+
+/* ==========================================================================
+   TÍTULOS DAS SEÇÕES
+   Cada título continua sendo a imagem desenhada, mas agora dentro de um
+   <h2>/<h3> de verdade e com a descrição (alt) escrita — é o alt que o
+   Google lê como sendo o título da seção.
+   ========================================================================== */
+.TituloSecao,
+.SubTitulo {
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 0;
+}
+
+.TituloImg {
+    position: relative;
+    height: 100px;
+    width: auto;
+    max-width: 90%;
+    top: 10px;
+    margin: 10px auto;
+}
+
+.Titlle,
+.titlle {
+    position: relative;
+    height: 70px;
+    width: auto;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   ABERTURA (texto que o Google lê primeiro)
+   ========================================================================== */
+.SeçãoIntro {
     border-left: solid 5px rgb(112, 114, 21);
     border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5); 
+    background: linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+    padding: 25px 20px 30px;
+    text-align: center;
+}
+
+.SeçãoIntro h1 {
+    font-size: 34px;
+    color: #3a3a00;
+    margin-bottom: 12px;
+}
+
+.Chamada {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.ChamadaAcao {
+    margin-top: 18px;
+}
+
+.BotaoWpp {
+    display: inline-block;
+    background: rgb(112, 114, 21);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px 22px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.BotaoWpp:hover {
+    background: rgb(88, 90, 10);
+}
+
+/* ==========================================================================
+   ESTRUTURA GENÉRICA DAS SEÇÕES
+   Antes cada seção tinha style="display:flex" escrito dentro do HTML. Estilo
+   escrito no HTML vence o CSS, e por isso NENHUMA regra de celular conseguia
+   empilhar as colunas. Agora é classe, e o @media do fim do arquivo funciona.
+   ========================================================================== */
+.SeçãoEspaço,
+.SeçãoComoChegar,
+.SeçãoTrilhas,
+.SeçãoPet,
+.SeçãoValores,
+.SeçãoMotorHome,
+.SeçãoFeedBacks,
+.SeçãoEventos {
+    border-left: solid 5px rgb(112, 114, 21);
+    border-right: solid 5px rgb(112, 114, 21);
+    background: linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+    display: block;
+    padding-bottom: 20px;
+}
+
+.Conteudo,
+.Coluns,
+.LinhaTrilhas,
+.LinhaValores,
+.LinhaFeed {
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-.swiffy-slider{
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
     max-width: 1800px;
-    
-}
-.slider-container img{
-    border-radius:20px;
-    object-fit: cover;
+    margin: 0 auto;
 }
 
-.SeçãoEspaço{ /*Espaço*/
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+.ColunaTexto {
     display: grid;
-    justify-content: center;
-    align-items: center;
-    
+    align-content: start;
+    max-width: 620px;
 }
-h2, h3, h4{
-    text-align: center;
-    margin-bottom: 0px;
-}
-#Espaço{ /*Títulos das seções*/
-    position: relative;
-    top: 10px;
-    height: 100px;
-}
-div.imgsEspaço{
+
+.Galeria {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    margin-left: 10px;
+    position: relative;
 }
-.feedbackytE{
+
+.LinhaPlacas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.LinkBotao {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.LinkTexto {
+    text-decoration: none;
+}
+
+.LinkYoutube {
+    display: contents;
+}
+
+/* ==========================================================================
+   CARROSSEL DO TOPO
+   ========================================================================== */
+.SeçãoCarrosel {
+    border-left: solid 5px rgb(112, 114, 21);
+    border-right: solid 5px rgb(112, 114, 21);
+    background: linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SeçãoCarrosel .swiffy-slider {
+    max-width: 1800px;
+    width: 100%;
+}
+
+.slider-container img {
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* Antes a altura de 600px estava escrita dentro do HTML de cada foto.
+   Aqui ela é responsiva: encolhe junto com a tela. */
+.SeçãoCarrosel .slide-topo img {
+    width: 100%;
+    height: 600px;
+    max-height: 60vh;
+}
+
+/* ==========================================================================
+   NOSSO ESPAÇO
+   ========================================================================== */
+.feedbackytE {
     position: absolute;
     height: 40px;
-    display: flex;
-    left: 650px;
-    top: 665px;
+    width: auto;
+    right: 10px;
+    top: 10px;
+    z-index: 5;
     cursor: pointer;
 }
-.feedbackytE:hover{
+
+.feedbackytE:hover {
     height: 42px;
 }
-.imgEspaço{
-    max-height:350px; 
-    max-width: 350px; 
+
+.imgEspaço {
+    width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: solid 2px black;
     border-radius: 20px;
-} 
-.DescriçãoEspaço{
+}
+
+.DescriçãoEspaço {
     margin: 10px;
     text-align: center;
     font-size: 18px;
@@ -198,45 +473,35 @@ div.imgsEspaço{
     overflow-wrap: break-word;
     max-width: 600px;
 }
-.PlacaEspaço{
+
+.PlacaEspaço {
     height: 150px;
+    width: auto;
     display: block;
-    margin-left: 60px;
     border: solid 2px black;
     border-radius: 20px;
     transform: rotate(-15deg);
+    margin: 20px 15px;
 }
-.regulamento{
+
+.regulamento {
     text-decoration: none;
 }
 
-
-.SeçãoComoChegar{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-#ComoChegar{
-    position: relative;
-    top: 10px;
-    height: 100px;
-}
-.Coluns{
-    display: flex;
-}
-.Mapa{
-    position: relative;
+/* ==========================================================================
+   COMO CHEGAR
+   ========================================================================== */
+.Mapa {
     display: block;
+    width: 100%;
+    max-width: 700px;
     height: 550px;
-    min-width: 700px;
     border-radius: 40px;
     border: solid 2px black;
-    margin: 10px;  
+    margin: 10px;
 }
-.DescriçãoOndeEstamos{
+
+.DescriçãoOndeEstamos {
     margin-bottom: 0;
     font-size: 18px;
     text-align: center;
@@ -244,345 +509,255 @@ div.imgsEspaço{
     overflow-wrap: break-word;
     max-width: 600px;
 }
-.placa{
+
+.placa,
+.PlacaComoChegar {
     position: relative;
     height: 200px;
     width: 200px;
+    object-fit: cover;
     display: block;
-    margin-left: 50px;
     border: solid 2px black;
     border-radius: 20px;
-    transform: rotate(15deg);
-    top: 50px;
-}
-.PlacaComoChegar{
-    position: relative;
-    height: 200px;
-    width: 200px;
-    display: block;
-    margin-left: 80px;
-    border: solid 2px black;
-    border-radius: 20px;
-    transform: rotate(-15deg);
-    top: 50px;
-}
-.WikiLoc{
-    position: relative;
-    margin: 0px auto;
-    height: 35px;
-    width: auto;
     top: 20px;
+    margin: 10px 20px 40px;
+}
+
+.placa {
+    transform: rotate(15deg);
+}
+
+.PlacaComoChegar {
+    transform: rotate(-15deg);
+}
+
+.WikiLoc {
+    display: inline-block;
+    margin: 0px auto;
     text-decoration: underline;
-    padding: 0px 10px;
+    padding: 8px 12px;
     border-radius: 10px;
     border: solid 1px;
     background: #fde6b8;
     color: black;
     font-size: 16px;
-}
-.WikiLoc:hover{
-    font-size: 17px;
+    cursor: pointer;
 }
 
+.WikiLoc:hover {
+    background: #fdd98f;
+}
 
-
-.SeçãoTrilhas{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-    position: relative;
+/* ==========================================================================
+   TRILHAS
+   ========================================================================== */
+.PicoDoUrubu,
+.PorDoSol {
     display: grid;
-    width: 100%;
-    height: 0 auto;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-h5{
-    text-align: center;
-    width: 100%;
-    height: 70px;
-    margin-bottom: 0;
-    font-size: 30px;
-}
-#Trilhas{
-    height: 100px;
-}
-.PicoDoUrubu, .PorDoSol{
-    display: grid;
+    align-content: start;
     height: auto;
     margin: 10px;
+    max-width: 600px;
+    width: 100%;
 }
-.Titlle {
-    position: relative;
-    height: 70px;
-    margin-bottom: 0;
-    margin: 0 auto;
-}
-.carrosel ul li img, .carrosel ul li, .carrosel ul, div.swiffy-slider.carrosel{
-    max-height: 450px;
-    width: 600px;
-    overflow: hidden;
-}
-.carrosel{
+
+.carrosel-trilha {
+    display: block;
+    width: 100%;
     border: solid 2px black;
     border-radius: 20px;
+    overflow: hidden;
 }
-.MapaWikiloc{
+
+.carrosel-trilha .slider-container img {
+    width: 100%;
+    height: 450px;
+    max-height: 45vh;
+    object-fit: cover;
+}
+
+.MapaWikiloc {
     display: block;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    width: 100%;
+    height: 400px;
     border-radius: 20px;
     border: solid 2px black;
     margin-top: 10px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }
-.cor{
+
+.cor {
     color: #000000;
     text-decoration: underline;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     background-color: #fde6b8;
-    
 }
 
-
-
-.SeçãoPet{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-#PetFriendly{
-    position: relative;
-    height: 100px;
-    text-align: center;
-    top: 20px;
-}
-.DescPet{
+/* ==========================================================================
+   PET FRIENDLY
+   ========================================================================== */
+.DescPet {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 600px;
-    margin-left: 5%;
     text-align: center;
+    padding: 0 10px;
 }
-.imgPet{
-    max-height:350px; 
-    max-width: 350px; 
-    border: solid 2px black; 
-    border-radius: 20px;
-}
-div.imgsPet{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-left: 10px;
-}
-.PlacaPet{
-    height: 400px;
-    position: relative;
-    top: 10%;
-    display: block;
-    margin: 0 auto;
-    justify-content: center;
+
+.imgPet {
+    width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: solid 2px black;
     border-radius: 20px;
 }
 
-
-
-.SeçãoValores{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-    display: grid;
-    justify-content: center;
-}
-#Valores{
-    position: relative;
-    height: 100px;
-    text-align: center;
-    top: 20px;
-    margin-bottom: 30px;
-}
-.DescriçãoValores{
-    margin-bottom: 30px;
-    font-size: 22px;
+.PlacaPet,
+.placaMototHome {
+    height: 400px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
     display: block;
-    justify-content: center;
+    margin: 20px auto 0;
+    border: solid 2px black;
+    border-radius: 20px;
+}
+
+/* ==========================================================================
+   VALORES
+   ========================================================================== */
+.DescriçãoValores {
+    margin: 0 auto 30px;
+    font-size: 22px;
     text-align: center;
-    width: 900px;
+    max-width: 900px;
+    padding: 0 15px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-.DescValores2{
+
+.BarracasValores,
+.MotorhomesValores {
+    display: grid;
+    align-content: start;
     margin: 0 auto;
-    display: block;
+}
+
+.BlocoValor {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.DescValores2 {
+    margin: 0 auto;
     font-size: 22px;
     color: black;
     text-align: center;
-    margin-top: 10%;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    
 }
-.Lua{
+
+.Lua,
+.barraca {
     position: relative;
     width: 150px;
     height: 200px;
+    object-fit: cover;
     border-radius: 20px;
+}
+
+.Lua {
     margin-right: 25px;
     transform: rotate(10deg);
 }
-.barraca{
-    position: relative;
-    width: 150px;
-    height: 200px;
-    border-radius: 20px;
+
+.barraca {
     margin-left: 25px;
     transform: rotate(-10deg);
 }
 
-
-
-.SeçãoMotorHome{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-#MotorHome{
-    position: relative;
-    height: 100px;
-    text-align: center;
-    top: 15%;
-    display: block;
-    margin: auto;
-}
-.DescMotorHome{
+/* ==========================================================================
+   MOTOR HOME
+   ========================================================================== */
+.DescMotorHome {
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 600px;
     text-align: center;
+    padding: 0 10px;
 }
-.imgsMotor{
-    position: relative;
-    top: 30px;
-}
-.feedbackytM{
+
+.feedbackytM {
     position: absolute;
     height: 40px;
-    display: flex;
-    left: 275px;
+    width: auto;
+    right: 10px;
     top: 10px;
+    z-index: 5;
     cursor: pointer;
 }
-.feedbackytM:hover{
+
+.feedbackytM:hover {
     height: 42px;
 }
-.imgHome{
-    max-height:350px; 
-    max-width: 350px; 
-    border: solid 2px black; 
-    border-radius: 20px;
-}
-div.imgsMotor{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-right: 10px;
-}
-.placaMototHome{
-    height: 400px;
-    position: relative;
-    top: 10%;
-    display: block;
-    margin: 0 auto;
-    justify-content: center;
+
+.imgHome {
+    width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: solid 2px black;
     border-radius: 20px;
 }
 
-
-
-.SeçãoFeedBacks{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
+/* ==========================================================================
+   FEEDBACKS
+   ========================================================================== */
+.ColunaFeed {
     display: grid;
-    justify-content: center;
-    align-items: center;
+    align-content: start;
+    justify-items: center;
 }
-#feedbacks{
-    position: relative;
-    height: 100px;
-    display: block;
-    margin: auto;
-    top: 25px;
-}
-.colunasfeed{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(3, auto);
-    gap: 10px;
-}
-.imgsfeed{
+
+.imgsfeed {
     border-radius: 15px;
-    max-width: 500px;
-    max-height: 500px;
-    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
     margin: 20px;
-    border: solid 1px black
+    border: solid 1px black;
 }
-.F1{display: block; position: relative; top: -10px; width: 420px; height: 250px; transform: rotate(-5deg);} 
-.F2{display: block; position: relative; left: 200px; transform: rotate(10deg);}
-.F3{position: relative; display: block; left: 50px; transform: rotate(-5deg);} 
-.F4{position: relative; display: block; left: 100px; transform: rotate(-15deg);} 
-.F5{position: relative; display: block; left: 80px; top: -20px; transform: rotate(15deg); width: 400px;} 
-.F6{position: relative; display: block; right: 20px; transform: rotate(-5deg);} 
-.F7{position: relative; display: block; left: 200px; transform: rotate(-15deg);}
-.F8{position: relative; display: block; top: 20px; width: 400px; height: 225px; transform: rotate(-12deg);}
-.F9{position: relative; display: block; top: 10px; width: 400px; height: 225px; transform: rotate(5deg);}
 
+.F1 { position: relative; top: -10px; width: 420px; height: 250px; transform: rotate(-5deg); }
+.F2 { position: relative; transform: rotate(10deg); }
+.F3 { position: relative; transform: rotate(-5deg); }
+.F4 { position: relative; transform: rotate(-15deg); }
+.F5 { position: relative; top: -20px; transform: rotate(15deg); width: 400px; }
+.F6 { position: relative; transform: rotate(-5deg); }
+.F8 { position: relative; top: 20px; width: 400px; height: 225px; transform: rotate(-12deg); }
+.F9 { position: relative; top: 10px; width: 400px; height: 225px; transform: rotate(5deg); }
 
-
-.SeçãoEventos{
-    border-left: solid 5px rgb(112, 114, 21);
-    border-right: solid 5px rgb(112, 114, 21);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #fbe9c5);
-}
-#Eventos{
-    position: relative;
-    height: 100px;
-    display: block;
-    margin: auto;
-    top: 10px;
-}
-div.imgsevent{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-right: 10px;
-}
-.imgevent{
-    max-height:350px; 
-    max-width: 350px; 
-    border: solid 2px black; 
+/* ==========================================================================
+   EVENTOS
+   ========================================================================== */
+.imgevent {
+    width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: solid 2px black;
     border-radius: 20px;
 }
-.DescriçãoEventos{
+
+.DescriçãoEventos {
     margin: 10px;
     text-align: center;
     font-size: 18px;
@@ -591,29 +766,29 @@ div.imgsevent{
     max-width: 600px;
 }
 
-footer{
-    background:linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #292827);
+/* ==========================================================================
+   RODAPÉ: DÚVIDAS E CONTATO
+   ========================================================================== */
+footer {
+    background: linear-gradient(#fbe9c5 20%, rgb(255, 216, 143), #292827);
 }
 
-.SeçãoDúvidas{
+.SeçãoDúvidas {
     border-left: solid 5px rgb(112, 114, 21);
     border-right: solid 5px rgb(112, 114, 21);
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    display: block;
     padding-bottom: 40px;
 }
-#Duvidas{
-    position: relative;
-    height: 100px;
-    text-align: center;
-    top: 10px;
-}
-.faq-container{
-    width: 700px;
+
+.faq-container {
+    width: 100%;
+    max-width: 700px;
     margin: 20px auto 0;
+    padding: 0 15px;
 }
-.P{
+
+.P {
+    display: block;
     font-family: Arial, Helvetica, sans-serif;
     background: rgba(255, 255, 255, 0.55);
     border: none;
@@ -624,37 +799,42 @@ footer{
     width: 100%;
     text-align: left;
     padding: 0;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s, border-color 0.2s;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
-.P:hover{
+
+.P:hover {
     box-shadow: 2px 4px 14px rgba(112, 114, 21, 0.35);
     border-left-color: rgb(80, 82, 0);
 }
-.faq-header{
+
+.faq-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
+    gap: 12px;
 }
-.bord{
+
+.bord {
     font-size: 18px;
     font-weight: bold;
     color: #3a3a00;
     margin: 0;
     text-align: left;
 }
-.faq-icon{
+
+.faq-icon {
     font-size: 26px;
     font-weight: bold;
     color: rgb(112, 114, 21);
     flex-shrink: 0;
-    margin-left: 12px;
     line-height: 1;
 }
-.R{
+
+.R {
     font-size: 16px;
     display: none;
     font-family: Arial, Helvetica, sans-serif;
@@ -666,44 +846,75 @@ footer{
     animation: slow 0.4s ease-out;
 }
 
+.SeçãoContato {
+    border-left: solid 5px rgb(112, 114, 21);
+    border-right: solid 5px rgb(112, 114, 21);
+    text-align: center;
+    padding: 10px 20px 30px;
+}
 
+.TituloContato {
+    font-size: 24px;
+    color: #3a3a00;
+    margin-bottom: 12px;
+}
 
-.WppFlutuante{
+.Endereco {
+    font-style: normal;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #2b2b2b;
+}
+
+.Endereco a {
+    color: #2b2b2b;
+    text-decoration: underline;
+}
+
+.Creditos {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6b6b60;
+}
+
+/* ==========================================================================
+   FLUTUANTES: WHATSAPP E VOLTA AO TOPO
+   ========================================================================== */
+.WppFlutuante {
     position: fixed;
     right: 0;
     bottom: 0;
+    z-index: 30;
 }
-.ImgWppFlutante{
+
+.ImgWppFlutante {
     cursor: pointer;
     position: relative;
     width: 45px;
+    height: auto;
     bottom: 10px;
     right: 10px;
     animation: slow 5s ease-out;
 }
-#chat{
+
+#chat {
     position: absolute;
     bottom: 0;
     right: 0;
     display: none;
     animation: slow 5s ease-out;
 }
+
 @keyframes slow {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
 }
-#relogio{
-    font-family:'Open Sans', sans-serif; font-weight: 700;
+
+#relogio {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     position: relative;
     top: 73px;
     left: 13%;
@@ -712,11 +923,14 @@ footer{
     color: white;
     height: 5px;
 }
-.FecharChat{
+
+.FecharChat {
     position: absolute;
     display: block;
     text-align: center;
     color: white;
+    background: none;
+    border: none;
     z-index: 9;
     font-weight: bold;
     left: 75%;
@@ -724,82 +938,454 @@ footer{
     font-size: 16px;
     cursor: pointer;
     width: 20px;
-    font-family:'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
-.FecharChat:hover{
+
+.FecharChat:hover {
     font-size: 18px;
 }
-#nome{
-    position: absolute;
-    bottom: 208px;
-    left:50px;
-    border-radius: 10px;
-    height: 35px;
-    border: solid 2px black;
-    display: block;
-    width: 200px;
-}
-#Quantpessoas{
-    position: absolute;
-    display: block;
-    border: solid 2px black;
-    height: 35px;
-    bottom: 153px;
-    left:50px;
-    border-radius: 10px;
-    width: 200px;
-}
-#datachegada{
-    position: absolute;
-    bottom: 97px;
-    left:50px;
-    border-radius: 10px;
-    height: 35px;
-    border: solid 2px black;
-    display: block;
-    width: 200px;
-}
-#datasaida{
-    border: solid 2px black;
-    position: absolute;
-    bottom: 45px;
-    display: block;
-    height: 35px;
-    left:50px;
-    border-radius: 10px;
-    width: 200px;
-}
-.chatimg{
+
+.chatimg {
     display: block;
     position: relative;
     width: 350px;
+    height: auto;
     right: 10px;
     top: 50px;
 }
-#Enviar{
+
+#nome,
+#Quantpessoas,
+#datachegada,
+#datasaida {
+    position: absolute;
+    display: block;
+    border: solid 2px black;
+    border-radius: 10px;
+    height: 35px;
+    left: 50px;
+    width: 200px;
+    font-size: 16px;
+    /* 16px evita que o iPhone dê zoom sozinho ao tocar no campo */
+    padding: 0 8px;
+}
+
+#nome { bottom: 208px; }
+#Quantpessoas { bottom: 153px; }
+#datachegada { bottom: 97px; }
+#datasaida { bottom: 45px; }
+
+#Enviar {
     position: relative;
     border-radius: 50%;
-    color:red;
+    color: red;
+    background: none;
+    border: none;
     width: 40px;
     height: 40px;
     bottom: 40px;
     left: 255px;
-    opacity: 0%;
+    opacity: 0;
     cursor: pointer;
 }
 
-
-.Voltaaotopo{
+.voltaaotopo {
     position: fixed;
-    display: block;
-    width: 50px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 25;
+}
+
+.Voltaaotopo {
+    display: block;
+    width: 50px;
+    height: auto;
     cursor: pointer;
     animation: slow 5s ease-out;
 }
 
-@media(max-width:480px){
-    
+/* ==========================================================================
+   TELAS MÉDIAS (tablet e notebook pequeno) — até 1024px
+   ========================================================================== */
+@media (max-width: 1024px) {
+    nav.Menu .ItemMenu {
+        font-size: 22px;
+        margin-left: 10px;
+    }
+
+    nav.Menu .LogoMenu {
+        width: 200px;
+        right: 0;
+        top: -10px;
+    }
+
+    .SeçãoIntro h1 {
+        font-size: 28px;
+    }
+
+    /* Colunas lado a lado viram uma embaixo da outra */
+    .Conteudo,
+    .Coluns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Mapa {
+        height: 420px;
+        max-width: 100%;
+    }
+
+    .MapaWikiloc {
+        height: 320px;
+    }
+
+    .F1, .F5, .F8, .F9 {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ==========================================================================
+   CELULAR — até 768px
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* No celular só o menu hamburguer aparece; a lista horizontal não cabe. */
+    nav.Menu .MenuLista {
+        display: none;
+    }
+
+    .Hamburguer {
+        display: block;
+    }
+
+    nav.Menu {
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    nav.Menu .LogoMenu {
+        width: 160px;
+        right: 0;
+        top: 0;
+    }
+
+    .ClickHamburguer {
+        width: 44px;
+        top: 0;
+        margin: 6px;
+    }
+
+    header.AreaContato {
+        gap: 2px;
+        padding: 4px 8px;
+    }
+
+    .TXTDecoration {
+        font-size: 15px;
+    }
+
+    .TXTDecoration:hover {
+        font-size: 15px;
+    }
+
+    .ImgLocalIcon {
+        height: 28px;
+    }
+
+    .imgFace,
+    .imgInsta,
+    .imgWpp,
+    .imgEmail {
+        width: 30px;
+        height: 30px;
+    }
+
+    .AreaContato a img:hover {
+        width: 30px;
+    }
+
+    .SeçãoIntro {
+        padding: 20px 15px 25px;
+    }
+
+    .SeçãoIntro h1 {
+        font-size: 24px;
+    }
+
+    .Chamada {
+        font-size: 16px;
+    }
+
+    .BotaoWpp {
+        font-size: 16px;
+        padding: 12px 18px;
+    }
+
+    /* Bordas laterais de 5px comem tela demais no celular */
+    header.AreaContato,
+    nav.Menu,
+    .SeçãoCarrosel,
+    .SeçãoIntro,
+    .SeçãoEspaço,
+    .SeçãoComoChegar,
+    .SeçãoTrilhas,
+    .SeçãoPet,
+    .SeçãoValores,
+    .SeçãoMotorHome,
+    .SeçãoFeedBacks,
+    .SeçãoEventos,
+    .SeçãoDúvidas,
+    .SeçãoContato {
+        border-left-width: 3px;
+        border-right-width: 3px;
+    }
+
+    .TituloImg {
+        height: 65px;
+    }
+
+    .Titlle,
+    .titlle {
+        height: 50px;
+    }
+
+    .SeçãoCarrosel .slide-topo img {
+        height: 260px;
+        max-height: 40vh;
+        border-radius: 12px;
+    }
+
+    /* Galerias de 2 colunas: as fotos passam a ocupar a metade real da tela */
+    .Galeria {
+        gap: 8px;
+        padding: 0 8px;
+        width: 100%;
+    }
+
+    .imgEspaço,
+    .imgPet,
+    .imgHome,
+    .imgevent {
+        max-width: 100%;
+        max-height: none;
+        border-radius: 12px;
+    }
+
+    .DescriçãoEspaço,
+    .DescriçãoOndeEstamos,
+    .DescPet,
+    .DescMotorHome,
+    .DescriçãoEventos {
+        font-size: 16px;
+        padding: 0 12px;
+    }
+
+    .DescriçãoValores {
+        font-size: 18px;
+    }
+
+    .DescValores2 {
+        font-size: 18px;
+    }
+
+    /* As placas inclinadas ficam grandes demais e vazam a tela */
+    .PlacaEspaço {
+        height: 110px;
+        margin: 15px 10px;
+    }
+
+    .placa,
+    .PlacaComoChegar {
+        height: 130px;
+        width: 130px;
+        margin: 10px 12px 30px;
+    }
+
+    .PlacaPet,
+    .placaMototHome {
+        height: 260px;
+    }
+
+    .Mapa {
+        height: 300px;
+        border-radius: 20px;
+        margin: 10px 0;
+    }
+
+    .carrosel-trilha .slider-container img {
+        height: 240px;
+        max-height: 35vh;
+    }
+
+    .MapaWikiloc {
+        height: 260px;
+    }
+
+    .LinhaValores {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Lua,
+    .barraca {
+        width: 110px;
+        height: 150px;
+        margin: 0 10px;
+    }
+
+    /* Os feedbacks são inclinados; no celular a inclinação empurra tudo
+       para fora da tela, então ficam retos e empilhados. */
+    .LinhaFeed {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imgsfeed {
+        margin: 10px;
+    }
+
+    .F1, .F2, .F3, .F4, .F5, .F6, .F8, .F9 {
+        transform: none;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: 100%;
+        max-width: 340px;
+        height: auto;
+    }
+
+    .F1, .F8, .F9 {
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .bord {
+        font-size: 16px;
+    }
+
+    .faq-header {
+        padding: 14px 15px;
+    }
+
+    .R {
+        padding: 0 15px 14px;
+    }
+
+    .Endereco {
+        font-size: 16px;
+    }
+
+    /* O botão de voltar ao topo fica no centro embaixo e cobria o conteúdo */
+    .Voltaaotopo {
+        width: 38px;
+    }
+
+    .ImgWppFlutante {
+        width: 52px;
+    }
+
+    /* O formulário de reserva é posicionado em cima de uma imagem de fundo
+       de 350px; no celular ele encolhe junto para não vazar. */
+    .chatimg {
+        width: 280px;
+        right: 5px;
+    }
+
+    #nome,
+    #Quantpessoas,
+    #datachegada,
+    #datasaida {
+        width: 160px;
+        left: 40px;
+        height: 30px;
+    }
+
+    #nome { bottom: 168px; }
+    #Quantpessoas { bottom: 124px; }
+    #datachegada { bottom: 80px; }
+    #datasaida { bottom: 38px; }
+
+    #Enviar {
+        left: 205px;
+        bottom: 34px;
+    }
+
+    #relogio {
+        top: 58px;
+    }
+}
+
+/* ==========================================================================
+   CELULAR PEQUENO — até 420px
+   ========================================================================== */
+@media (max-width: 420px) {
+    .TXTDecoration {
+        font-size: 13px;
+    }
+
+    .SeçãoIntro h1 {
+        font-size: 21px;
+    }
+
+    .TituloImg {
+        height: 52px;
+    }
+
+    .SeçãoCarrosel .slide-topo img {
+        height: 200px;
+    }
+
+    /* Uma foto por linha: em 360px de largura, duas colunas deixam cada foto
+       com 165px, pequena demais para ver qualquer coisa. */
+    .Galeria {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .imgEspaço,
+    .imgPet,
+    .imgHome,
+    .imgevent {
+        max-width: 300px;
+    }
+
+    .LinhaPlacas {
+        gap: 0;
+    }
+
+    .PlacaEspaço {
+        height: 90px;
+    }
+
+    .placa,
+    .PlacaComoChegar {
+        height: 110px;
+        width: 110px;
+    }
+
+    .BlocoValor {
+        flex-direction: column;
+    }
+
+    .Lua,
+    .barraca {
+        transform: none;
+        margin: 8px auto;
+    }
+}
+
+/* Quem prefere menos animação no sistema não vê a rolagem animada */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .ImgWppFlutante,
+    .Voltaaotopo,
+    .DropHamburguer,
+    #chat,
+    .R {
+        animation: none;
+    }
 }

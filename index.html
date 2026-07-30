@@ -1,156 +1,170 @@
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!--Modo Para Computador--> <!--<meta name="viewport" content="width-devide-width, initial-scale=1.0"> -->
+
+  <!-- ESSENCIAL: faz o site se adaptar à tela do celular.
+       Sem esta linha o Google trata a página como "não compatível com dispositivos
+       móveis", e é ela que faz as regras @media do CSS funcionarem. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- O título que aparece em azul/roxo no Google -->
+  <title>Camping Colinas do Itapety | Camping em Mogi das Cruzes, SP</title>
+
+  <!-- O texto cinza que descreve o site no Google -->
+  <meta name="description"
+    content="Camping na Serra do Itapety, em Mogi das Cruzes (SP). Área para barracas e motorhome, cozinha comum, banho quente, pet friendly e trilhas para o Pico do Urubu. Diárias a partir de R$ 40.">
+
+  <link rel="canonical" href="https://colinasdoitapety.netlify.app/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#707215">
+
   <!-- Css -->
-  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./Css/style.css">
   <!-- icon -->
-  <link rel="icon" type="image/png" href="./barraca-de-acampamento.png">
+  <link rel="icon" type="image/webp" href="./barraca-de-acampamento.webp">
+
+  <!-- Carrega antes de tudo a primeira foto do carrossel: é a maior imagem
+       da parte visível, e o Google cronometra justamente ela. -->
+  <link rel="preload" as="image" href="./Img/Barraca/Barraca-3.webp" fetchpriority="high">
+
   <!-- Carrosel api -->
   <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
     crossorigin="anonymous">
-  <!-- Por algum motivo, isso ajusta o html -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <!-- O título que aparece em azul/roxo no Google -->
-  <title>Camping Colinas do Itapety | Mogi das Cruzes</title>
 
-  <!-- O texto cinza que descreve o site -->
-  <meta name="description"
-    content="Venha relaxar no Camping Colinas do Itapety em Mogi das Cruzes. Localizado na Serra do Itapety, oferecemos uma experiência única em meio à natureza com fácil acesso.">
-
-  <!-- Evita que o Google use textos aleatórios se a descrição for curta -->
-  <meta name="robots" content="noodp">
-
-  <!-- Imagem que aparecerá em compartilhamentos e buscas -->
-  <meta property="og:image" content="https://colinasdoitapety.netlify.app/Img/barraca/barraca-3.png">
+  <!-- Como o link aparece quando alguém manda no WhatsApp ou no Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Camping Colinas do Itapety">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://colinasdoitapety.netlify.app/">
+  <meta property="og:title" content="Camping Colinas do Itapety | Mogi das Cruzes, SP">
+  <meta property="og:description"
+    content="Camping na Serra do Itapety, em Mogi das Cruzes. Barracas e motorhome, cozinha comum, banho quente, pet friendly e trilhas. Diárias a partir de R$ 40.">
+  <meta property="og:image" content="https://colinasdoitapety.netlify.app/Img/compartilhar.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Barracas montadas no Camping Colinas do Itapety">
 
-  <!-- Twitter Card para garantir exibição correta em redes sociais -->
   <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
   <div class="corM">
     <header class="AreaContato">
-      <a class="TXTDecoration" target="_blank"
+      <a class="TXTDecoration" target="_blank" rel="noopener"
         href="https://www.google.com/maps/place/Camping+Colinas+do+Itapety/@-23.4736023,-46.2240914,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce79601a633dc5:0x63622758a97d3944!8m2!3d-23.4736073!4d-46.2194833!16s%2Fg%2F11h0vr3zlg">Localizado
-        em Mogi Das Cruzes<img class="ImgLocalIcon" src="./Img/AreaContato/Icon Local.png" alt=""
+        em Mogi Das Cruzes<img class="ImgLocalIcon" src="./Img/AreaContato/Icon Local.webp" alt="" width="90" height="90"
           aria-hidden="true"></a>
-      <a href="https://www.facebook.com/colinas.doitapety" target="_blank"><img class="imgFace"
-          src="./Img/AreaContato/facebook.png" alt="" aria-hidden="true"></a>
-      <a href="https://www.instagram.com/colinasdoitapety/" target="_blank"><img class="imgInsta"
-          src="./Img/AreaContato/instagramMenu.png" alt="" aria-hidden="true"></a>
-      <a href="https://wa.me/551147901566?text=Olá, Colinas!" target="_blank"><img class="imgWpp"
-          src="./Img/AreaContato/wpp.png" alt="" aria-hidden="true"></a>
-      <a href="mailto:colinasdoitapety@gmail.com?Subject=Hello%20again" target="_blank"><img class="imgEmail"
-          src="./Img/AreaContato/imgEmail.png" alt="" aria-hidden="true"></a>
+      <a href="https://www.facebook.com/colinas.doitapety" target="_blank" rel="noopener"
+        aria-label="Facebook do Camping Colinas do Itapety"><img class="imgFace" src="./Img/AreaContato/facebook.webp"
+          alt="Facebook" width="90" height="90"></a>
+      <a href="https://www.instagram.com/colinasdoitapety/" target="_blank" rel="noopener"
+        aria-label="Instagram do Camping Colinas do Itapety"><img class="imgInsta"
+          src="./Img/AreaContato/instagramMenu.webp" alt="Instagram" width="90" height="90"></a>
+      <a href="https://wa.me/551147901566?text=Olá, Colinas!" target="_blank" rel="noopener"
+        aria-label="WhatsApp do Camping Colinas do Itapety: (11) 4790-1566"><img class="imgWpp"
+          src="./Img/AreaContato/wpp.webp" alt="WhatsApp" width="90" height="90"></a>
+      <a href="mailto:colinasdoitapety@gmail.com" aria-label="E-mail do Camping: colinasdoitapety@gmail.com"><img
+          class="imgEmail" src="./Img/AreaContato/imgEmail.webp" alt="E-mail" width="90" height="89"></a>
     </header>
 
-    <nav id="Menu" class="Menu">
-      <img class="LogoMenu" src="./Img/Logos/Logo Colinas do itapety.png" alt="Logo Colinas do Itapety">
-      <li><a href="#Espaço">
-          <h1 id="MenuEspaço">Nosso Espaço</h1>
-      </li></a>
-      <li><a href="#ComoChegar">
-          <h1 id="MenuComoChegar">Como chegar</h1>
-      </li></a>
-      <li><a href="#Trilhas">
-          <h1 id="MenuTrilhas">Trilhas</h1>
-      </li></a>
-      <li><a href="#PetFriendly">
-          <h1 id="MenuPetFriendly">Pet Friendly</h1>
-      </li></a>
-      <li><a href="#Valores">
-          <h1 id="MenuValores">Valores</h1>
-      </li></a>
-      <li><a href="#MotorHome">
-          <h1 id="MenuMotorHome">Motor Home</h1>
-      </li></a>
-      <li><a href="#feedbacks">
-          <h1 id="MenuFeedbacks">Feedbacks</h1>
-      </li></a>
-      <li><a href="#Eventos">
-          <h1 id="MenuEventos">Eventos</h1>
-      </li></a>
-      <li><a href="#Duvidas">
-          <h1 id="MenuDuvidas">Dúvidas</h1>
-      </li></a>
+    <nav id="Menu" class="Menu" aria-label="Menu principal">
+      <a href="#topo" class="LinkLogo"><img class="LogoMenu" src="./Img/Logos/Logo Colinas do itapety.webp"
+          alt="Logo do Camping Colinas do Itapety" width="600" height="334"></a>
+
+      <ul class="MenuLista">
+        <li><a href="#Espaço"><span class="ItemMenu" id="MenuEspaço">Nosso Espaço</span></a></li>
+        <li><a href="#ComoChegar"><span class="ItemMenu" id="MenuComoChegar">Como chegar</span></a></li>
+        <li><a href="#Trilhas"><span class="ItemMenu" id="MenuTrilhas">Trilhas</span></a></li>
+        <li><a href="#PetFriendly"><span class="ItemMenu" id="MenuPetFriendly">Pet Friendly</span></a></li>
+        <li><a href="#Valores"><span class="ItemMenu" id="MenuValores">Valores</span></a></li>
+        <li><a href="#MotorHome"><span class="ItemMenu" id="MenuMotorHome">Motor Home</span></a></li>
+        <li><a href="#feedbacks"><span class="ItemMenu" id="MenuFeedbacks">Feedbacks</span></a></li>
+        <li><a href="#Eventos"><span class="ItemMenu" id="MenuEventos">Eventos</span></a></li>
+        <li><a href="#Duvidas"><span class="ItemMenu" id="MenuDuvidas">Dúvidas</span></a></li>
       </ul>
+
       <div class="Hamburguer">
-        <img class="ClickHamburguer" id="OpenHamburguer" src="./Img/Hambuerguer/Hamburguer Open.png" alt="Open Menu"
-          onclick="Hamburguer()">
+        <button class="BotaoHamburguer" type="button" onclick="Hamburguer()" aria-controls="DropHamburguer"
+          aria-expanded="false" aria-label="Abrir menu">
+          <img class="ClickHamburguer" id="OpenHamburguer" src="./Img/Hambuerguer/Hamburguer Open.webp" alt=""
+            width="400" height="361" aria-hidden="true">
+        </button>
         <div class="DropHamburguer" id="DropHamburguer">
-          <ul style="display: grid;">
-            <li><a href="#Espaço">
-                <p class="EstiloTXTHamburguer" id="HamburguerEspaço">Nosso Espaço</p>
-            </li></a>
-            <li><a href="#ComoChegar">
-                <p class="EstiloTXTHamburguer" id="HamburguerComoChegar">Como chegar</p>
-            </li></a>
-            <li><a href="#Trilhas">
-                <p class="EstiloTXTHamburguer" id="HamburguerTrilhas">Trilhas</p>
-            </li></a>
-            <li><a href="#PetFriendly">
-                <p class="EstiloTXTHamburguer" id="HamburguerPetFriendly">Pet Friendly</p>
-            </li></a>
-            <li><a href="#Valores">
-                <p class="EstiloTXTHamburguer" id="HamburguerValores">Valores</p>
-            </li></a>
-            <li><a href="#MotorHome">
-                <p class="EstiloTXTHamburguer" id="HamburguerMotorHome">Motor Home</p>
-            </li></a>
-            <li><a href="#feedbacks">
-                <p class="EstiloTXTHamburguer" id="HamburguerFeedbacks">Feedbacks</p>
-            </li></a>
-            <li><a href="#Eventos">
-                <p class="EstiloTXTHamburguer" id="HamburguerEventos">Eventos</p>
-            </li></a>
-            <li><a href="#Duvidas">
-                <p class="EstiloTXTHamburguer" id="HamburguerDuvidas">Dúvidas</p>
-            </li></a>
-            <a class="regulamento EstiloTXTHamburguer" href="Img/Regulamento_v.3.doc" download>Regulamento</a>
+          <ul>
+            <li><a href="#Espaço"><span class="EstiloTXTHamburguer" id="HamburguerEspaço">Nosso Espaço</span></a></li>
+            <li><a href="#ComoChegar"><span class="EstiloTXTHamburguer" id="HamburguerComoChegar">Como chegar</span></a>
+            </li>
+            <li><a href="#Trilhas"><span class="EstiloTXTHamburguer" id="HamburguerTrilhas">Trilhas</span></a></li>
+            <li><a href="#PetFriendly"><span class="EstiloTXTHamburguer" id="HamburguerPetFriendly">Pet
+                  Friendly</span></a></li>
+            <li><a href="#Valores"><span class="EstiloTXTHamburguer" id="HamburguerValores">Valores</span></a></li>
+            <li><a href="#MotorHome"><span class="EstiloTXTHamburguer" id="HamburguerMotorHome">Motor Home</span></a>
+            </li>
+            <li><a href="#feedbacks"><span class="EstiloTXTHamburguer" id="HamburguerFeedbacks">Feedbacks</span></a>
+            </li>
+            <li><a href="#Eventos"><span class="EstiloTXTHamburguer" id="HamburguerEventos">Eventos</span></a></li>
+            <li><a href="#Duvidas"><span class="EstiloTXTHamburguer" id="HamburguerDuvidas">Dúvidas</span></a></li>
+            <li><a class="regulamento EstiloTXTHamburguer" href="Img/Regulamento_v.3.doc" download>Regulamento</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </div>
 
-  <section class="SeçãoCarrosel">
+  <section class="SeçãoCarrosel" id="topo">
     <div class="swiffy-slider">
       <ul class="slider-container">
-        <li id="carrosel"><img src="./Img/Barraca/Barraca-3.jpg" alt="Barracas No Camping"
-            style="width: 100%;height: 600px;"></li>
-        <li id="carrosel"><img src="./Img/Barraca/Barraca-5.jpg" alt="Barracas No Camping"
-            style="width: 100%;height: 600px;"></li>
-        <li id="carrosel"><img src="./Img/Barraca/Barraca-1.png" alt="Barracas No Camping"
-            style="width: 100%;height: 600px;"></li>
-        <li id="carrosel"><img src="./Img/Barraca/barraca-4.png" alt="Barracas No Camping"
-            style="width: 100%;height: 600px;"></li>
-        <li id="carrosel"><img src="./Img/Barraca/barraca-2.jpg" alt="Barracas No Camping"
-            style="width: 100%;height: 600px;"></li>
+        <li class="slide-topo"><img src="./Img/Barraca/Barraca-3.webp" alt="Barracas montadas no gramado do Camping"
+            width="1600" height="900" fetchpriority="high"></li>
+        <li class="slide-topo"><img src="./Img/Barraca/Barraca-5.webp" alt="Barracas No Camping" width="1480" height="720"
+            loading="lazy"></li>
+        <li class="slide-topo"><img src="./Img/Barraca/Barraca-1.webp" alt="Barracas No Camping" width="1280"
+            height="1055" loading="lazy"></li>
+        <li class="slide-topo"><img src="./Img/Barraca/Barraca-4.webp" alt="Barracas No Camping" width="1353" height="600"
+            loading="lazy"></li>
+        <li class="slide-topo"><img src="./Img/Barraca/Barraca-2.webp" alt="Barracas No Camping" width="906" height="500"
+            loading="lazy"></li>
       </ul>
     </div> <!--Carrosel-->
   </section>
-  <section class="SeçãoEspaço">
-    <h2><img id="Espaço" src="./Img/Títulos/Espaço.png"></h2>
-    <div style="display: flex;">
-      <div class="imgsEspaço" style="position: relative;">
-        <a target="_blank" href="https://www.youtube.com/watch?v=YchUdfGsd_o" style="display: contents;"><img
-            class="feedbackytE" src="./img/motorhome/youtube.png" alt="Youtube"></a>
-        <img class=" imgEspaço" src="./Img/Espaço/Espaço-1.png" style="height: 400px; width: 400px;"
+
+  <!-- Bloco de texto de abertura: é aqui que fica o único H1 da página e as
+       palavras que as pessoas realmente digitam no Google. -->
+  <section class="SeçãoIntro">
+    <h1>Camping Colinas do Itapety</h1>
+    <p class="Chamada">
+      Um <strong>camping em Mogi das Cruzes (SP)</strong>, dentro de uma reserva de Mata Atlântica na
+      <strong>Serra do Itapety</strong>, a pouco mais de uma hora da capital. Recebemos
+      <strong>barracas</strong> e <strong>motorhomes</strong>, somos <strong>pet friendly</strong> e daqui saem as
+      trilhas para o <strong>Pico do Urubu</strong> e para a <strong>Pedra do Pôr do Sol</strong>.
+      Diárias a partir de <strong>R$ 40</strong> por pessoa.
+    </p>
+    <p class="ChamadaAcao">
+      <a class="BotaoWpp" href="https://wa.me/551147901566?text=Olá, Colinas! Gostaria de saber sobre reservas."
+        target="_blank" rel="noopener">Reservar pelo WhatsApp: (11) 4790-1566</a>
+    </p>
+  </section>
+
+  <section class="SeçãoEspaço" id="Espaço">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Espaço.webp" alt="Nosso Espaço" width="480"
+        height="238" loading="lazy"></h2>
+    <div class="Conteudo">
+      <div class="imgsEspaço Galeria">
+        <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YchUdfGsd_o" class="LinkYoutube"
+          aria-label="Vídeo do camping no YouTube"><img class="feedbackytE" src="./Img/motorhome/youtube.webp"
+            alt="Youtube" width="100" height="70" loading="lazy"></a>
+        <img class="imgEspaço" src="./Img/Espaço/Espaço-1.webp" width="700" height="700" loading="lazy"
           alt="Área com geladeira, freezer, fogão, pia, louças e uma mesa. Tudo muito bem iluminado">
-        <img class=" imgEspaço" src="./Img/Espaço/Espaço-2.png" style="height: 400px; width: 400px;"
-          alt="Área com geladeira, freezer, fogão, pia, louças e uma mesa. Tudo muito bem iluminado">
-        <img class=" imgEspaço" src="./Img/Espaço/Espaço-3.png" style="height: 400px; width: 400px;"
+        <img class="imgEspaço" src="./Img/Espaço/Espaço-2.webp" width="400" height="400" loading="lazy"
+          alt="Cozinha comum do camping com fogão e utensílios">
+        <img class="imgEspaço" src="./Img/Espaço/Espaço-3.webp" width="240" height="240" loading="lazy"
           alt="Barraca instalada">
-        <img class=" imgEspaço" src="./Img/Espaço/Espaço-4.png" style="height: 400px; width: 400px;"
+        <img class="imgEspaço" src="./Img/Espaço/Espaço-4.webp" width="400" height="400" loading="lazy"
           alt="Pia do banheiro">
       </div>
-      <div style="display: grid;">
+      <div class="ColunaTexto">
         <p class="DescriçãoEspaço">Nosso Camping conta com uma área comum construída para <strong>apoio</strong> aos
           campistas!
           Nela, disponibilizamos geladeira, freezer, fogão com forno à gás, pia, utensílios de cozinha diversos como:
@@ -168,21 +182,25 @@
           essencial já que a caixa d'água depende de bomba para encher.
           O sinal de operadoras de celular funcionam mas oscilam. Não há disponibilidade de wi-fi.
           ***Atente-se ao <a class="regulamento" href="Img/Regulamento_v.3.doc" download>regulamento</a> completo e, em
-          caso de dúvidas, entre em contato.
+          caso de dúvidas, entre em contato.
         </p>
-        <div style="display: flex;">
-          <img class=" PlacaEspaço" src="./Img/Espaço/placa.jpg" alt="Placa">
-          <img class=" PlacaEspaço" src="./Img/Espaço/placa-1.jpg" alt="Placa">
+        <div class="LinhaPlacas">
+          <img class="PlacaEspaço" src="./Img/Espaço/placa.webp" alt="Placa do camping" width="800" height="600"
+            loading="lazy">
+          <img class="PlacaEspaço" src="./Img/Espaço/placa-1.webp" alt="Placa do camping" width="800" height="600"
+            loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="SeçãoComoChegar">
-    <h3><img id="ComoChegar" src="./Img/Títulos/Onde Estamos.png" alt="Onde Estamos"></h3>
+  <section class="SeçãoComoChegar" id="ComoChegar">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Onde Estamos.webp"
+        alt="Onde Estamos: como chegar ao camping" width="480" height="136" loading="lazy"></h2>
     <div class="Coluns">
-      <div style="display: grid;">
-        <img class="Titlle" src="./Img/Títulos/Trajeto.png" alt="Trajeto">
+      <div class="ColunaTexto">
+        <h3 class="SubTitulo"><img class="Titlle" src="./Img/Títulos/Trajeto.webp" alt="Trajeto" width="480" height="311"
+            loading="lazy"></h3>
         <p class="DescriçãoOndeEstamos">O Camping Colinas do Itapety fica localizado em área rural da cidade de Mogi das
           Cruzes, exatamente na Serra do Itapety. O acesso é pelaRodovia Ayrton Senna ou Dutra e depois pela Mogi-Dutra
           (Rodovia Pedro Eroles).
@@ -194,83 +212,106 @@
           porteira com a placa do Colinas à sua esquerda.
 
           A estrada está em ótimo estado, podendo ser acessada por carros de passeio ou motos.
-          Utilize o <a target="_blank" style="text-decoration: none;"
+          Utilize o <a target="_blank" rel="noopener" class="LinkTexto"
             href="https://www.google.com/maps/place/Camping+Colinas+do+Itapety/@-23.473607,-46.219483,17z/data=!4m6!3m5!1s0x94ce79601a633dc5:0x63622758a97d3944!8m2!3d-23.4736073!4d-46.2194833!16s%2Fg%2F11h0vr3zlg?hl=pt-BR&entry=ttu">Google
             Maps</a> e <strong>NUNCA</strong> o Waze (este leva as pessoas para o lugar errado sempre!)
-          Basta colocar no Google: <a target="_blank" style="text-decoration: none;"
+          Basta colocar no Google: <a target="_blank" rel="noopener" class="LinkTexto"
             href="https://www.google.com/maps/place/Camping+Colinas+do+Itapety/@-23.473607,-46.219483,17z/data=!4m6!3m5!1s0x94ce79601a633dc5:0x63622758a97d3944!8m2!3d-23.4736073!4d-46.2194833!16s%2Fg%2F11h0vr3zlg?hl=pt-BR&entry=ttu">Colinas
-            do Itapety</a> e Boa Viagem!!
+            do Itapety</a> e Boa Viagem!!
         </p>
-        <a style="text-align: center;" target="_blank"
-          href="https://pt.wikiloc.com/trilhas-trekking/colinas-do-itapety-x-ponto-de-onibus-a-pe-31665626#lb-embed"><button
-            class="WikiLoc" type="button">Trilha para quem chega de Ônibus: Wikiloc</button></a>
-        <div style="display: flex; height: 300px;">
-          <img class=" placa" src="./Img/Comochegar/placa.jpg" alt="Placa">
-          <img class=" PlacaComoChegar" src="./Img/Comochegar/placa-1.png" alt="Placa">
+        <a class="LinkBotao" target="_blank" rel="noopener"
+          href="https://pt.wikiloc.com/trilhas-trekking/colinas-do-itapety-x-ponto-de-onibus-a-pe-31665626#lb-embed"><span
+            class="WikiLoc">Trilha para quem chega de Ônibus: Wikiloc</span></a>
+        <div class="LinhaPlacas">
+          <img class="placa" src="./Img/Comochegar/placa.webp" alt="Placa na entrada do camping" width="798" height="800"
+            loading="lazy">
+          <img class="PlacaComoChegar" src="./Img/Comochegar/placa-1.webp" alt="Placa indicando o caminho" width="800"
+            height="642" loading="lazy">
         </div>
       </div>
-      <iframe class="Mapa"
+      <iframe class="Mapa" title="Mapa do Camping Colinas do Itapety no Google Maps"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3659.635681478408!2d-46.2220636!3d-23.4736024!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce79601a633dc5%3A0x63622758a97d3944!2sCamping%20Colinas%20do%20Itapety!5e0!3m2!1spt-BR!2sbr!4v1682639220178!5m2!1spt-BR!2sbr"
-        width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        width="600" height="450" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
-  <section class="SeçãoTrilhas">
-    <h5><img id="Trilhas" src="./Img/Títulos/Trilhas.png" alt="Trilhas"></h5>
-    <div style="display: flex; justify-content: center; gap: 15px; ">
+  <section class="SeçãoTrilhas" id="Trilhas">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Trilhas.webp" alt="Trilhas" width="480"
+        height="239" loading="lazy"></h2>
+    <div class="LinhaTrilhas">
       <article class="PicoDoUrubu">
-        <img class="Titlle" src="./Img/Títulos/Pico do Urubu.png" alt="Pico Do Urubu">
-        <div class="swiffy-slider carrosel" style="display: block; width: 600px;height: 600px;">
+        <h3 class="SubTitulo"><img class="Titlle" src="./Img/Títulos/Pico do Urubu.webp" alt="Pico Do Urubu" width="480"
+            height="118" loading="lazy"></h3>
+        <div class="swiffy-slider carrosel-trilha">
           <ul class="slider-container">
-            <li><img src="./Img/pico1/pico-1.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico1/pico-2.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico1/pico-3.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico1/pico-4.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico1/pico-5.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
+            <li><img src="./Img/pico1/pico-1.webp" alt="Vista do Pico do Urubu" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico1/pico-2.webp" alt="Trilha do Pico do Urubu" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico1/pico-3.webp" alt="Trilha do Pico do Urubu" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico1/pico-4.webp" alt="Trilha do Pico do Urubu" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico1/pico-5.webp" alt="Trilha do Pico do Urubu" width="600" height="450"
+                loading="lazy"></li>
           </ul>
-          <button type="button" class="slider-nav"></button>
-          <button type="button" class="slider-nav slider-nav-next"></button>
+          <button type="button" class="slider-nav" aria-label="Foto anterior"></button>
+          <button type="button" class="slider-nav slider-nav-next" aria-label="Próxima foto"></button>
         </div>
-        <iframe class="MapaWikiloc" frameBorder="0" scrolling="no"
+        <iframe class="MapaWikiloc" title="Mapa da trilha ao Pico do Urubu no Wikiloc" frameBorder="0" scrolling="no"
+          loading="lazy"
           src="https://pt.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=123428469&measures=off&title=off&near=off&images=off&maptype=H"
           width="600" height="400"></iframe>
-        <a style="text-align: center; margin-top: 15px;" target="_blank"
-          href="https://pt.wikiloc.com/trilhas-trekking/colinas-do-itapety-x-pico-do-urubu-123428469#lb-embed"><button
-            class="WikiLoc cor" type="button">Trilha Ao Pico Do Urubu: Wikiloc</button></a>
+        <a class="LinkBotao" target="_blank" rel="noopener"
+          href="https://pt.wikiloc.com/trilhas-trekking/colinas-do-itapety-x-pico-do-urubu-123428469#lb-embed"><span
+            class="WikiLoc cor">Trilha Ao Pico Do Urubu: Wikiloc</span></a>
       </article>
       <article class="PorDoSol">
-        <img class="Titlle" src="./Img/Títulos/Pedra do por do sol.png" alt="Pedra do por do sol">
-        <div class="swiffy-slider carrosel" style="display: block; width: 600px;height: 600px;">
+        <h3 class="SubTitulo"><img class="Titlle" src="./Img/Títulos/Pedra do por do sol.webp"
+            alt="Pedra do Pôr do Sol" width="480" height="107" loading="lazy"></h3>
+        <div class="swiffy-slider carrosel-trilha">
           <ul class="slider-container">
-            <li><img src="./Img/pico2/pico2-5.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico2/pico2-1.jpg" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico2/pico2-2.png" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico2/pico2-4.jpg" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
-            <li><img src="./Img/pico2/pico2-3.jpg" alt="Pico do Urubu" style="width: 600px; height: 450px;"></li>
+            <li><img src="./Img/pico2/pico2-5.webp" alt="Pôr do sol visto da pedra" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico2/pico2-1.webp" alt="Trilha da Pedra do Pôr do Sol" width="1200" height="800"
+                loading="lazy"></li>
+            <li><img src="./Img/pico2/pico2-2.webp" alt="Trilha da Pedra do Pôr do Sol" width="600" height="450"
+                loading="lazy"></li>
+            <li><img src="./Img/pico2/pico2-4.webp" alt="Trilha da Pedra do Pôr do Sol" width="1200" height="800"
+                loading="lazy"></li>
+            <li><img src="./Img/pico2/pico2-3.webp" alt="Trilha da Pedra do Pôr do Sol" width="1200" height="900"
+                loading="lazy"></li>
           </ul>
-          <button type="button" class="slider-nav"></button>
-          <button type="button" class="slider-nav slider-nav-next"></button>
+          <button type="button" class="slider-nav" aria-label="Foto anterior"></button>
+          <button type="button" class="slider-nav slider-nav-next" aria-label="Próxima foto"></button>
         </div>
-        <iframe class="MapaWikiloc" frameBorder="0" scrolling="no"
+        <iframe class="MapaWikiloc" title="Mapa da trilha à Pedra do Pôr do Sol no Wikiloc" frameBorder="0"
+          scrolling="no" loading="lazy"
           src="https://pt.wikiloc.com/wikiloc/spatialArtifacts.do?event=view&id=53827994&measures=off&title=off&near=off&images=off&maptype=H"
           width="600" height="400"></iframe>
-        <a style="text-align: center; margin-top: 15px;" target="_blank"
-          href="https://pt.wikiloc.com/trilhas-trekking/camping-colinas-do-itapety-pedra-do-por-do-sol-53827994"><button
-            class="WikiLoc cor" type="button">Trilha À Pedra Do Pôr Do Sol: Wikiloc</button></a>
+        <a class="LinkBotao" target="_blank" rel="noopener"
+          href="https://pt.wikiloc.com/trilhas-trekking/camping-colinas-do-itapety-pedra-do-por-do-sol-53827994"><span
+            class="WikiLoc cor">Trilha À Pedra Do Pôr Do Sol: Wikiloc</span></a>
       </article>
     </div>
   </section>
 
-  <section class="SeçãoPet">
-    <p id="PetFriendly"><img id="PetFriendly" src="./Img/Títulos/Pet Friendly.png" alt="Pet Friendly"></p>
-    <div style="display: flex;">
-      <div class="imgsPet">
-        <img class="imgPet" src="./Img/pet/pet-1.png" alt="Pet" style="height: 400px; width: 400px;" alt="Tótó">
-        <img class="imgPet" src="./Img/pet/pet-2.png" alt="Pet" style="height: 400px; width: 400px;" alt="Tótó">
-        <img class="imgPet" src="./Img/pet/pet-3.png" alt="Pet" style="height: 400px; width: 400px;" alt="Tótó">
-        <img class="imgPet" src="./Img/pet/pet-4.png" alt="Pet" style="height: 400px; width: 400px;" alt="Tótó">
+  <section class="SeçãoPet" id="PetFriendly">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Pet Friendly.webp"
+        alt="Pet Friendly: aceitamos cães" width="480" height="160" loading="lazy"></h2>
+    <div class="Conteudo">
+      <div class="imgsPet Galeria">
+        <img class="imgPet" src="./Img/pet/pet-1.webp" alt="Cachorro no camping" width="600" height="600"
+          loading="lazy">
+        <img class="imgPet" src="./Img/pet/pet-2.webp" alt="Cachorro no camping" width="600" height="600"
+          loading="lazy">
+        <img class="imgPet" src="./Img/pet/pet-3.webp" alt="Cachorro no camping" width="600" height="600"
+          loading="lazy">
+        <img class="imgPet" src="./Img/pet/pet-4.webp" alt="Cachorro no camping" width="600" height="600"
+          loading="lazy">
       </div>
-      <div>
+      <div class="ColunaTexto">
         <p class="DescPet">Nosso Camping é Pet Friendly!!
           Então traga seu cãopanheiro!
 
@@ -279,103 +320,121 @@
 
           No local, há cães e gatos que moram lá e há vizinhos com outros animais. Então, se seu cão tem instinto
           caçador ou é um pouco mais bravo, ele deve ficar sob seu controle e com focinheira se for o caso.. Caso ocorra
-          algum incidente, você será responsabilizado e deverá arcar com prejuízos.</p>
-        <img class=" PlacaPet" src="./Img/pet/placa.jpg" alt="Placa">
+          algum incidente, você será responsabilizado e deverá arcar com prejuízos.</p>
+        <img class="PlacaPet" src="./Img/pet/placa.webp" alt="Placa do camping" width="600" height="800" loading="lazy">
       </div>
     </div>
   </section>
 
-  <section class="SeçãoValores">
-    <p id="Valores"><img id="Valores" src="./Img/Títulos/Valores.png"></p>
+  <section class="SeçãoValores" id="Valores">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Valores.webp" alt="Valores das diárias"
+        width="480" height="198" loading="lazy"></h2>
     <p class="DescriçãoValores">Nossa diária é das 8h até 20h todos os dias, e é relativa ao número de pernoites apenas.
       Significa que você pode chegar no Camping às 8h de um dia e sair no dia seguinte até 20h, pagando apenas uma
       diária. Há necessidade de fazer um rápido cadastro para reservar a hospedagem.</p>
-    <div style="display: flex; justify-content: center;">
-      <div class="BarracasValores" style="display: grid; margin: 0 auto;">
-        <img class="titlle" src="./img/Títulos/Barracas.png" alt="PreçoDasBarracas">
-        <div style="display: flex; ">
-          <img class="Lua" src="./Img/Valores/Lua.jpg" alt="PaisagemLua">
+    <div class="LinhaValores">
+      <div class="BarracasValores">
+        <h3 class="SubTitulo"><img class="titlle" src="./Img/Títulos/Barracas.webp" alt="Preço para barracas"
+            width="480" height="164" loading="lazy"></h3>
+        <div class="BlocoValor">
+          <img class="Lua" src="./Img/Valores/Lua.webp" alt="Paisagem noturna no camping" width="400" height="300"
+            loading="lazy">
           <p class="DescValores2">Acima de 12 anos: <strong>R$40</strong><br>
             De 7 até 12 anos: <strong>R$30</strong><br>
             Até 6 anos: <strong>Gratuito</strong></p>
         </div>
       </div>
-      <div class="MotorhomesValores" style="display: grid; margin: 0 auto;">
-        <img class="titlle" src="./Img/Títulos/MotorHomes.png" alt="PreçoPorMotorhome">
-        <div style="display: flex; ">
+      <div class="MotorhomesValores">
+        <h3 class="SubTitulo"><img class="titlle" src="./Img/Títulos/MotorHomes.webp" alt="Preço para motorhomes"
+            width="480" height="171" loading="lazy"></h3>
+        <div class="BlocoValor">
           <p class="DescValores2">Acima de 12 anos: <strong>R$50</strong><br>
             De 7 até 12 anos: <strong>R$40</strong><br>
             Até 6 anos: <strong>Gratuito</strong></p>
-          <img class="barraca" src="./Img/Valores/barrraca.jpg" alt="PaisagemBarraca">
+          <img class="barraca" src="./Img/Valores/barrraca.webp" alt="Barraca montada no camping" width="225"
+            height="400" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="SeçãoMotorHome">
-    <p id="MotorHome"><img id="MotorHome" src="./Img/Títulos/Motor Home.png" alt="Motor Home"></p>
-    <div style="display: flex;">
-      <div>
+  <section class="SeçãoMotorHome" id="MotorHome">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Motor Home.webp"
+        alt="Motor Home: espaço para casas sobre rodas" width="480" height="152" loading="lazy"></h2>
+    <div class="Conteudo">
+      <div class="ColunaTexto">
         <p class="DescMotorHome">Casas sobre rodas também são bem-vindas. Atente-se as especificações a seguir:
           <br>Máximo: 10m largura<br>Máximo: 10m Altura<br>Preferencia tração traseira.
         </p>
-        <img class=" placaMototHome" src="./Img/motorhome/placa.jpg" alt="placa">
+        <img class="placaMototHome" src="./Img/motorhome/placa.webp" alt="Placa do camping" width="600" height="800"
+          loading="lazy">
       </div>
-      <div class="imgsMotor">
-        <a target="_blank" href="https://www.youtube.com/watch?v=YchUdfGsd_o" style="display: contents;"><img
-            class="feedbackytM" src="./Img/motorhome/youtube.png" alt="Youtube"></a>
-        <img class="imgHome" src="./Img/motorhome/motor-1.jpg" style="height: 400px; width: 400px;" alt="MotorHome">
-        <img class="imgHome" src="./Img/motorhome/motor-2.jpg" style="height: 400px; width: 400px;" alt="MotorHome">
-        <img class="imgHome" src="./Img/motorhome/motor-3.jpg" style="height: 400px; width: 400px;" alt="MotorHome">
-        <img class="imgHome" src="./Img/motorhome/motor-4.jpg" style="height: 400px; width: 400px;" alt="MotorHome">
+      <div class="imgsMotor Galeria">
+        <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=YchUdfGsd_o" class="LinkYoutube"
+          aria-label="Vídeo do camping no YouTube"><img class="feedbackytM" src="./Img/motorhome/youtube.webp"
+            alt="Youtube" width="100" height="70" loading="lazy"></a>
+        <img class="imgHome" src="./Img/motorhome/motor-1.webp" alt="Motorhome no camping" width="700" height="687"
+          loading="lazy">
+        <img class="imgHome" src="./Img/motorhome/motor-2.webp" alt="Motorhome no camping" width="525" height="700"
+          loading="lazy">
+        <img class="imgHome" src="./Img/motorhome/motor-3.webp" alt="Motorhome no camping" width="525" height="700"
+          loading="lazy">
+        <img class="imgHome" src="./Img/motorhome/motor-4.webp" alt="Motorhome no camping" width="700" height="690"
+          loading="lazy">
       </div>
     </div>
   </section>
 
-  <section class="SeçãoFeedBacks">
-    <p id="FeedBack"><img id="feedbacks" src="./Img/Títulos/FeedBack.png" alt="FeedBack"></p>
-    <div style=" display: flex; justify-content: center; align-items: center; gap: 20px;">
-      <div style="display: grid;">
-        <iframe class="imgsfeed F1" src="https://www.youtube.com/embed/YchUdfGsd_o" title="YouTube video player"
-          frameborder="0"
+  <section class="SeçãoFeedBacks" id="feedbacks">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/FeedBack.webp"
+        alt="Feedbacks de quem já acampou aqui" width="480" height="214" loading="lazy"></h2>
+    <div class="LinhaFeed">
+      <div class="ColunaFeed">
+        <iframe class="imgsfeed F1" src="https://www.youtube.com/embed/YchUdfGsd_o" title="Vídeo de um hóspede no
+          YouTube" frameborder="0" loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen alt="Video de  um hospede no  Youtube"></iframe>
-        <img class="imgsfeed F2" src="./Img/feedbacks/Chantal.PNG" alt="Chantal  Correia: Queroooo!!! Com vcs juntos">
-        <img class="imgsfeed F6" src="./Img/feedbacks/show.PNG"
+          allowfullscreen></iframe>
+        <img class="imgsfeed F2" src="./Img/feedbacks/Chantal.webp" width="267" height="74" loading="lazy"
+          alt="Chantal  Correia: Queroooo!!! Com vcs juntos">
+        <img class="imgsfeed F6" src="./Img/feedbacks/show.webp" width="303" height="78" loading="lazy"
           alt="Paulo H. G. Tavares: Esse foi show! Boas lembranças!">
-        <img class="imgsfeed F4" src="./Img/feedbacks/Maravilhoso.PNG"
+        <img class="imgsfeed F4" src="./Img/feedbacks/Maravilhoso.webp" width="488" height="109" loading="lazy"
           alt="jc_jcelio: Eu já fui, várias vezes, e simplesmente fantástico. Quem  sabe um dia volto <3">
         <iframe class="imgsfeed F8" width="560" height="315" src="https://www.youtube.com/embed/_yej7dv1CS8"
-          title="YouTube video player" frameborder="0"
+          title="Vídeo de um hóspede no YouTube" frameborder="0" loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
-      <div style="display: grid;">
-        <img class="imgsfeed F5" src="./Img/feedbacks/Por do sol.PNG"
+      <div class="ColunaFeed">
+        <img class="imgsfeed F5" src="./Img/feedbacks/Por do sol.webp" width="470" height="190" loading="lazy"
           alt="jc_jcelio: E perfeito ver o pôr do sol dessa pedra">
-        <img class="imgsfeed F3" src="./Img/feedbacks/feedback-1.jpg"
+        <img class="imgsfeed F3" src="./Img/feedbacks/feedback-1.webp" width="1000" height="741" loading="lazy"
           alt="Amamos a Experiência, organizado e claro que não deixamos de reparar como vocês pensam nas reais necessidades das pessoas que acampam. Com centeza retornarei e vou compartilhar com os colegas">
         <iframe class="imgsfeed F9" width="560" height="315" src="https://www.youtube.com/embed/zAG1JNQRge0"
-          title="YouTube video player" frameborder="0"
+          title="Vídeo de um hóspede no YouTube" frameborder="0" loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
     </div>
   </section>
 
-  <section class="SeçãoEventos">
-    <p id="Eventos"><img id="Eventos" src="./Img/Títulos/Eventros.png" alt="Eventos"></p>
-    <div style="display: flex;">
-      <div class="imgsevent">
-        <img class="imgevent" src="./Img/Eventos/1.png" style="height: 400px; width: 400px;" alt="Eventos">
-        <img class="imgevent" src="./Img/Eventos/2.jpg.png" style="height: 400px; width: 400px;" alt="Eventos">
-        <img class="imgevent" src="./Img/Eventos/3.jpg.png" style="height: 400px; width: 400px;" alt="Eventos">
-        <img class="imgevent" src="./Img/Eventos/4.jpg.png" style="height: 400px; width: 400px;" alt="Eventos">
+  <section class="SeçãoEventos" id="Eventos">
+    <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Eventros.webp" alt="Eventos no camping"
+        width="480" height="253" loading="lazy"></h2>
+    <div class="Conteudo">
+      <div class="imgsevent Galeria">
+        <img class="imgevent" src="./Img/Eventos/1.webp" alt="Festa julina no camping" width="400" height="400"
+          loading="lazy">
+        <img class="imgevent" src="./Img/Eventos/2.jpg.webp" alt="Evento no camping" width="400" height="400"
+          loading="lazy">
+        <img class="imgevent" src="./Img/Eventos/3.jpg.webp" alt="Evento no camping" width="400" height="400"
+          loading="lazy">
+        <img class="imgevent" src="./Img/Eventos/4.jpg.webp" alt="Evento no camping" width="400" height="400"
+          loading="lazy">
       </div>
-      <div>
+      <div class="ColunaTexto">
         <p class="DescriçãoEventos">No nosso espaço também acontecem eventos como a festa julina. você pode organizar um
           evento e trazer a galera para nosso espaço, entre em contato para mais infomações</p>
-        <img class="" src="" alt="">
       </div>
     </div>
   </section>
@@ -383,78 +442,218 @@
   <div class="WppFlutuante">
     <div id="chat">
       <time id="relogio" datetime="2023-04-26T09:30:00-03:00"></time>
-      <div class="FecharChat" onclick="abrirchat()">x</div>
-      <img class="chatimg" src="./Img/chatWhats/ChatImg.png" alt="IconWhatsappFlutuante">
-      <input type="text" id="nome" pattern="\d{2}/\d{2}/\d{4}" placeholder="Ex: Ricardo Garlipp">
-      <input type="number" id="Quantpessoas">
+      <button class="FecharChat" type="button" onclick="abrirchat()" aria-label="Fechar">x</button>
+      <img class="chatimg" src="./Img/chatWhats/ChatImg.webp" alt="" width="560" height="700" loading="lazy"
+        aria-hidden="true">
+      <label class="RotuloOculto" for="nome">Seu nome</label>
+      <input type="text" id="nome" placeholder="Ex: Ricardo Garlipp">
+      <label class="RotuloOculto" for="Quantpessoas">Quantas pessoas</label>
+      <input type="number" id="Quantpessoas" min="1" placeholder="Quantas pessoas">
+      <label class="RotuloOculto" for="datachegada">Data de chegada</label>
       <input type="date" id="datachegada">
+      <label class="RotuloOculto" for="datasaida">Data de saída</label>
       <input type="date" id="datasaida">
-      <button id="Enviar" type="hidden" onclick="EnviarWpp()">C</button>
+      <button id="Enviar" type="button" onclick="EnviarWpp()" aria-label="Enviar pelo WhatsApp">C</button>
     </div>
-    <img id="imgwhats" class="ImgWppFlutante" src="./Img/chatWhats/WppFlutuante.png" onclick="abrirchat()"
-      alt="Chat  Flutuante">
+    <button class="BotaoWppFlutuante" type="button" onclick="abrirchat()"
+      aria-label="Abrir formulário de reserva pelo WhatsApp">
+      <img id="imgwhats" class="ImgWppFlutante" src="./Img/chatWhats/WppFlutuante.webp" alt="" width="93" height="100"
+        aria-hidden="true">
+    </button>
   </div>
 
   <div class="voltaaotopo">
-    <img style="display: block;" class="Voltaaotopo" id="Voltaaotopo" src="./Img/Volta ao topo/Volte ao topo.png"
-      alt="Volte ao topo" onclick="Volta()" alt="Voltar ao topo">
-    <img style="display: none;" class="Voltaaotopo" id="Irparabaixo" src="./Img/Volta ao topo/Ir para baixo.png"
-      alt="Volte ao topo" onclick="Descer()" alt="Descer">
+    <button class="BotaoTopo" type="button" id="Voltaaotopo" onclick="Volta()" aria-label="Voltar ao topo">
+      <img class="Voltaaotopo" src="./Img/Volta ao topo/Volte ao topo.webp" alt="" width="120" height="120"
+        loading="lazy" aria-hidden="true">
+    </button>
+    <button class="BotaoTopo Escondido" type="button" id="Irparabaixo" onclick="Descer()"
+      aria-label="Descer para o conteúdo">
+      <img class="Voltaaotopo" src="./Img/Volta ao topo/Ir para baixo.webp" alt="" width="120" height="120"
+        loading="lazy" aria-hidden="true">
+    </button>
   </div>
 
   <footer>
-    <section class="SeçãoDúvidas">
-      <p id="Duvidas"><img id="Duvidas" src="./Img/Títulos/Dúvidas.png"></p>
+    <section class="SeçãoDúvidas" id="Duvidas">
+      <h2 class="TituloSecao"><img class="TituloImg" src="./Img/Títulos/Dúvidas.webp" alt="Dúvidas frequentes"
+          width="480" height="199" loading="lazy"></h2>
       <div class="faq-container">
-        <button class="P" id="P1" onclick="Pergunta(1)">
-          <div class="faq-header">
-            <p class="bord">Como funciona o pagamento da reserva?</p>
+        <button class="P" id="P1" type="button" onclick="Pergunta(1)" aria-expanded="false" aria-controls="R1">
+          <span class="faq-header">
+            <span class="bord">Como funciona o pagamento da reserva?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R1">Para confirmar sua reserva, é cobrado um sinal de 50% do valor total. O restante é pago no momento da saída do Camping. Entre em contato pelo WhatsApp para combinar a forma de pagamento do sinal.</p>
+          </span>
+          <span class="R" id="R1">Para confirmar sua reserva, é cobrado um sinal de 50% do valor total. O restante é pago no momento da saída do Camping. Entre em contato pelo WhatsApp para combinar a forma de pagamento do sinal.</span>
         </button>
-        <button class="P" id="P2" onclick="Pergunta(2)">
-          <div class="faq-header">
-            <p class="bord">Posso levar meu cachorro?</p>
+        <button class="P" id="P2" type="button" onclick="Pergunta(2)" aria-expanded="false" aria-controls="R2">
+          <span class="faq-header">
+            <span class="bord">Posso levar meu cachorro?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R2">Sim! O Colinas é Pet Friendly e seu cãopanheiro é bem-vindo! Lembre-se de recolher as fezes e manter o pet sob controle. Se ele for mais bravo, use focinheira — há outros cães, gatos e animais de vizinhos no local.</p>
+          </span>
+          <span class="R" id="R2">Sim! O Colinas é Pet Friendly e seu cãopanheiro é bem-vindo! Lembre-se de recolher as fezes e manter o pet sob controle. Se ele for mais bravo, use focinheira — há outros cães, gatos e animais de vizinhos no local.</span>
         </button>
-        <button class="P" id="P3" onclick="Pergunta(3)">
-          <div class="faq-header">
-            <p class="bord">Qual é o horário de entrada e saída?</p>
+        <button class="P" id="P3" type="button" onclick="Pergunta(3)" aria-expanded="false" aria-controls="R3">
+          <span class="faq-header">
+            <span class="bord">Qual é o horário de entrada e saída?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R3">Nossa diária vai das 8h até 20h. Você pode chegar às 8h e sair no dia seguinte até 20h pagando apenas uma diária. A cobrança é pelo número de pernoites, não por hora.</p>
+          </span>
+          <span class="R" id="R3">Nossa diária vai das 8h até 20h. Você pode chegar às 8h e sair no dia seguinte até 20h pagando apenas uma diária. A cobrança é pelo número de pernoites, não por hora.</span>
         </button>
-        <button class="P" id="P4" onclick="Pergunta(4)">
-          <div class="faq-header">
-            <p class="bord">Como chego ao Camping?</p>
+        <button class="P" id="P4" type="button" onclick="Pergunta(4)" aria-expanded="false" aria-controls="R4">
+          <span class="faq-header">
+            <span class="bord">Como chego ao Camping?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R4">Use sempre o Google Maps — nunca o Waze (ele leva para o lugar errado!). Pesquise "Camping Colinas do Itapety". O acesso é pela Rodovia Pedro Eroles. Após a Casa do Queijo, vire à direita, depois à esquerda na estrada de terra e siga até o final. Atenção à subida íngreme: suba em 1ª marcha!</p>
+          </span>
+          <span class="R" id="R4">Use sempre o Google Maps — nunca o Waze (ele leva para o lugar errado!). Pesquise "Camping Colinas do Itapety". O acesso é pela Rodovia Pedro Eroles. Após a Casa do Queijo, vire à direita, depois à esquerda na estrada de terra e siga até o final. Atenção à subida íngreme: suba em 1ª marcha!</span>
         </button>
-        <button class="P" id="P5" onclick="Pergunta(5)">
-          <div class="faq-header">
-            <p class="bord">Há Wi-Fi ou sinal de celular?</p>
+        <button class="P" id="P5" type="button" onclick="Pergunta(5)" aria-expanded="false" aria-controls="R5">
+          <span class="faq-header">
+            <span class="bord">Há Wi-Fi ou sinal de celular?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R5">Não há Wi-Fi disponível no Camping. O sinal de celular funciona, mas pode oscilar conforme a operadora. Aproveite para desconectar e curtir o ar puro da Serra do Itapety!</p>
+          </span>
+          <span class="R" id="R5">Não há Wi-Fi disponível no Camping. O sinal de celular funciona, mas pode oscilar conforme a operadora. Aproveite para desconectar e curtir o ar puro da Serra do Itapety!</span>
         </button>
-        <button class="P" id="P6" onclick="Pergunta(6)">
-          <div class="faq-header">
-            <p class="bord">O que devo levar para o Camping?</p>
+        <button class="P" id="P6" type="button" onclick="Pergunta(6)" aria-expanded="false" aria-controls="R6">
+          <span class="faq-header">
+            <span class="bord">O que devo levar para o Camping?</span>
             <span class="faq-icon">+</span>
-          </div>
-          <p class="R" id="R6">Leve sua barraca, itens de higiene, toalha e artigos de banho. A área comum tem geladeira, fogão e utensílios básicos — mas leve o essencial, pois não garantimos que tudo estará disponível. Atenção: todas as tomadas são 220V e não são permitidos aparelhos acima de 300W.</p>
+          </span>
+          <span class="R" id="R6">Leve sua barraca, itens de higiene, toalha e artigos de banho. A área comum tem geladeira, fogão e utensílios básicos — mas leve o essencial, pois não garantimos que tudo estará disponível. Atenção: todas as tomadas são 220V e não são permitidos aparelhos acima de 300W.</span>
         </button>
       </div>
     </section>
-    <p style="font-weight: bold; position: relative; left: 13%; width: 400px; display: none;">&copy; Rodrigo Escobar
-      Garlipp Dutra Fernandes</p>
 
+    <!-- Endereço, telefone e horário escritos em TEXTO. É por aqui que o Google
+         confirma que existe um negócio real neste endereço — links de mapa e de
+         WhatsApp sozinhos não servem. -->
+    <section class="SeçãoContato">
+      <h2 class="TituloContato">Contato e localização</h2>
+      <address class="Endereco">
+        <strong>Camping Colinas do Itapety</strong><br>
+        Estrada do Jatobá, 120 — Jardim Vieira<br>
+        Serra do Itapety — Mogi das Cruzes, SP<br>
+        Telefone e WhatsApp:
+        <a href="https://wa.me/551147901566?text=Olá, Colinas!" target="_blank" rel="noopener">(11) 4790-1566</a><br>
+        E-mail: <a href="mailto:colinasdoitapety@gmail.com">colinasdoitapety@gmail.com</a><br>
+        Recepção todos os dias, das 8h às 20h
+      </address>
+      <p class="Creditos">&copy; Rodrigo Escobar Garlipp Dutra Fernandes</p>
+    </section>
   </footer>
-  <script src="./Js/main.js"></script>
+
+  <!-- Ficha do negócio para o Google (dados estruturados). É o que permite
+       aparecer com telefone, preço e avaliação direto no resultado da busca. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Campground",
+        "@id": "https://colinasdoitapety.netlify.app/#camping",
+        "name": "Camping Colinas do Itapety",
+        "description": "Camping na Serra do Itapety, em Mogi das Cruzes (SP), dentro de reserva de Mata Atlântica. Área para barracas e motorhome, cozinha comum, banho quente, pet friendly e trilhas para o Pico do Urubu e a Pedra do Pôr do Sol.",
+        "url": "https://colinasdoitapety.netlify.app/",
+        "image": "https://colinasdoitapety.netlify.app/Img/compartilhar.jpg",
+        "telephone": "+551147901566",
+        "email": "colinasdoitapety@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Estrada do Jatobá, 120 — Jardim Vieira",
+          "addressLocality": "Mogi das Cruzes",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -23.4736073,
+          "longitude": -46.2194833
+        },
+        "hasMap": "https://www.google.com/maps/place/Camping+Colinas+do+Itapety/@-23.4736073,-46.2194833,17z",
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        "priceRange": "R$ 30 - R$ 50",
+        "currenciesAccepted": "BRL",
+        "petsAllowed": true,
+        "smokingAllowed": false,
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Cozinha comum com geladeira, freezer e fogão", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Banheiros com chuveiro quente", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Tanque de lavar roupa e varal", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Estacionamento", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Área para motorhome", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Aceita animais de estimação", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": false }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/colinas.doitapety",
+          "https://www.instagram.com/colinasdoitapety/"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://colinasdoitapety.netlify.app/#duvidas",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Como funciona o pagamento da reserva?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para confirmar sua reserva, é cobrado um sinal de 50% do valor total. O restante é pago no momento da saída do Camping. Entre em contato pelo WhatsApp para combinar a forma de pagamento do sinal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso levar meu cachorro?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim! O Colinas é Pet Friendly e seu cãopanheiro é bem-vindo! Lembre-se de recolher as fezes e manter o pet sob controle. Se ele for mais bravo, use focinheira — há outros cães, gatos e animais de vizinhos no local."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual é o horário de entrada e saída?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nossa diária vai das 8h até 20h. Você pode chegar às 8h e sair no dia seguinte até 20h pagando apenas uma diária. A cobrança é pelo número de pernoites, não por hora."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como chego ao Camping?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use sempre o Google Maps — nunca o Waze (ele leva para o lugar errado!). Pesquise \"Camping Colinas do Itapety\". O acesso é pela Rodovia Pedro Eroles. Após a Casa do Queijo, vire à direita, depois à esquerda na estrada de terra e siga até o final. Atenção à subida íngreme: suba em 1ª marcha!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Há Wi-Fi ou sinal de celular?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Não há Wi-Fi disponível no Camping. O sinal de celular funciona, mas pode oscilar conforme a operadora. Aproveite para desconectar e curtir o ar puro da Serra do Itapety!"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que devo levar para o Camping?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Leve sua barraca, itens de higiene, toalha e artigos de banho. A área comum tem geladeira, fogão e utensílios básicos — mas leve o essencial, pois não garantimos que tudo estará disponível. Atenção: todas as tomadas são 220V e não são permitidos aparelhos acima de 300W."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- defer: o navegador desenha a página primeiro e roda o script depois -->
+  <script src="./Js/main.js" defer></script>
 </body>
 
 </html>
